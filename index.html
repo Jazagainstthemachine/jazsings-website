@@ -3,14 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaz Sings</title>
+    <title>Jaz Sings – Live-Musik für unvergessliche Events</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; color: #333; }
+
+        /* NAVIGATION */
+        nav {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .nav-logo img {
+            height: 50px;
+        }
+        .nav-logo span {
+            color: #a8d8ea;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .nav-menu a:hover {
+            border-bottom: 2px solid #a8d8ea;
+            color: #a8d8ea;
+        }
+        .nav-icons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-icons a {
+            color: #a8d8ea;
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid #a8d8ea;
+            padding: 4px 10px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+        .nav-icons a:hover {
+            background: #a8d8ea;
+            color: #1a1a2e;
+        }
+
+        /* TRENNLINIE */
+        .divider {
+            height: 25px;
+            background: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8);
+        }
+
+        /* HERO SPLIT */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+        }
+        .hero-left {
+            width: 50%;
+            background-image: url('images/Hauptseite/hauptseite-bild1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-right {
+            width: 50%;
+            background-image: url('images/Hauptseite/hauptseite-bild2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            width: 80%;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+        }
+
+        /* ANFRAGEN BUTTON */
+        .btn-anfragen {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            background: #7b68ee;
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .btn-anfragen:hover {
+            background: #5a4fcf;
+            transform: scale(1.05);
+        }
+
+        /* SHORTS SECTION */
+        .shorts-section {
+            background: #f0f8ff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .shorts-section h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 30px;
+        }
+        .shorts-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .shorts-grid iframe {
+            border-radius: 12px;
+            border: none;
+        }
+
+        /* GOOGLE REVIEWS */
+        .reviews-section {
+            padding: 60px 20px;
+            text-align: center;
+            background: #e8f4f8;
+        }
+        .reviews-section h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 20px;
+        }
+        .reviews-section a {
+            display: inline-block;
+            background: #4285f4;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* SOFACONCERTS */
+        .sofaconcerts-section {
+            background: #1a1a2e;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .sofaconcerts-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #a8d8ea;
+        }
+        .sofaconcerts-section p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        .sofaconcerts-section a {
+            background: #a8d8ea;
+            color: #1a1a2e;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        footer a { color: #a8d8ea; }
+    </style>
 </head>
 <body>
-    <h1>Willkommen bei Jaz Sings</h1>
-    <p>Website wird gerade neu aufgebaut.</p>
-    <p>Melde dich gern per Email unter info@jazsings.com </p> 
-    <p>Oder per Telefon, Whatsapp, Telegram oder Signal unter der Nummer +491772252520</p>
-    <p>Vielen Dank für dein Verständnis</p>
-    <p>Melodische Grüße, deine Jazmin 🙂 </p>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-logo">
+            <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo">
+            <span>JAZ SINGS</span>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="galerie.html">Galerie</a>
+            <a href="shows.html">Shows</a>
+            <a href="shop.html">Shop</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="nav-icons">
+            <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
+            <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
+            <a href="https://www.youtube.com/@jazsings" target="_blank">YouTube</a>
+            <a href="https://T.me/jazsings" target="_blank">Telegram</a>
+            <a href="https://wa.me/491772252520" target="_blank">WhatsApp</a>
+            <a href="mailto:Info@jazsings.com">E-Mail</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-left"></div>
+        <div class="hero-right"></div>
+        <div class="hero-text">
+            <h1>Der Sound von Jaz</h1>
+            <p>für Träumerinnen & Genießer</p>
+        </div>
+    </div>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- ANFRAGEN BUTTON OBEN -->
+    <a href="mailto:Info@jazsings.com" class="btn-anfragen">🎵 Jetzt anfragen</a>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- SHORTS -->
+    <div class="shorts-section">
+        <h2>Live-Musik für unvergessliche Events</h2>
+        <div class="shorts-grid">
+            <iframe width="315" height="560" src="https://www.youtube.com/embed/Mnt5o8kcAIg" allowfullscreen></iframe>
+            <iframe width="315" height="560" src="https://www.youtube.com/embed/-I0ygxdGc7U" allowfullscreen></iframe>
+            <iframe width="315" height="560" src="https://www.youtube.com/embed/9M6zLLYP0-w" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- ANFRAGEN BUTTON -->
+    <a href="mailto:Info@jazsings.com" class="btn-anfragen">🎵 Jetzt anfragen</a>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- GOOGLE REVIEWS -->
+    <div class="reviews-section">
+        <h2>Was andere sagen</h2>
+        <p>Lies Bewertungen auf Google oder hinterlasse selbst eine!</p>
+        <a href="https://g.page/r/Ca7lYu9RUwNiEAE/review" target="_blank">⭐ Google Bewertungen ansehen</a>
+    </div>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- SOFACONCERTS -->
+    <div class="sofaconcerts-section">
+        <h2>Privates Konzert buchen</h2>
+        <p>Genieße Jaz Sings bei dir zu Hause oder im kleinen Rahmen über Sofaconcerts.</p>
+        <a href="https://www.sofaconcerts.org/de/artists/JazSings" target="_blank">Jetzt bei Sofaconcerts buchen</a>
+    </div>
+
+    <!-- TRENNLINIE -->
+    <div class="divider"></div>
+
+    <!-- ANFRAGEN BUTTON UNTEN -->
+    <a href="mailto:Info@jazsings.com" class="btn-anfragen">🎵 Jetzt anfragen</a>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Jaz Sings · <a href="mailto:Info@jazsings.com">Info@jazsings.com</a></p>
+    </footer>
+
 </body>
 </html>
