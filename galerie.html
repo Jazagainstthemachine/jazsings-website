@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaz Sings – Galerie</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, serif; color: #333; background: #f0f8ff; }
+
+        nav {
+            background: #1a1a2e;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; }
+        .nav-logo img { height: 50px; }
+        .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; }
+        .nav-menu { display: flex; gap: 20px; align-items: center; }
+        .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+        .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
+        .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
+
+        .divider { height: 25px; background: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8); }
+
+        .page-header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            background: #1a1a2e;
+            color: white;
+        }
+        .page-header h1 { font-size: 2.5rem; color: #a8d8ea; margin-bottom: 10px; }
+        .page-header p { font-size: 1.1rem; color: #ccc; }
+
+        /* VIDEOS SECTION */
+        .videos-section {
+            padding: 50px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .videos-section h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+        .videos-section h3 {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        .video-scroll-wrapper {
+            position: relative;
+        }
+        .video-scroll {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 15px;
+            scrollbar-width: thin;
+            scrollbar-color: #a8d8ea #f0f8ff;
+        }
+        .video-scroll::-webkit-scrollbar { height: 6px; }
+        .video-scroll::-webkit-scrollbar-track { background: #f0f8ff; }
+        .video-scroll::-webkit-scrollbar-thumb { background: #a8d8ea; border-radius: 10px; }
+        .video-scroll iframe {
+            flex-shrink: 0;
+            width: 320px;
+            height: 180px;
+            border-radius: 10px;
+            border: none;
+        }
+        .scroll-hint {
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* FOTOS SECTION */
+        .fotos-header {
+            text-align: center;
+            padding: 50px 20px 20px;
+        }
+        .fotos-header h2 {
+            font-size: 1.8rem;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        /* GRID - links nach rechts, oben nach unten */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) { .photo-grid { grid-template-columns: 1fr; } }
+
+        .photo-grid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.3s, opacity 0.3s;
+            cursor: pointer;
+            opacity: 0;
+        }
+        .photo-grid img.loaded { opacity: 1; }
+        .photo-grid img:hover { transform: scale(1.02); }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
+
+        footer {
+            background: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+        footer a { color: #a8d8ea; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo">
+            <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo">
+            <span>JAZ SINGS</span>
+        </div>
+        <div class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="galerie.html" class="active">Galerie</a>
+            <a href="shows.html">Shows</a>
+            <a href="shop.html">Shop</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="nav-icons">
+            <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
+            <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
+            <a href="https://www.youtube.com/@jazsings" target="_blank">YouTube</a>
+            <a href="https://T.me/jazsings" target="_blank">Telegram</a>
+            <a href="https://wa.me/491772252520" target="_blank">WhatsApp</a>
+            <a href="mailto:Info@jazsings.com">E-Mail</a>
+        </div>
+    </nav>
+
+    <div class="divider"></div>
+
+    <div class="page-header">
+        <h1>Galerie 📸🎬</h1>
+        <p>Musikvideos, Live-Auftritte und Fotos</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- VIDEOS -->
+    <!-- VIDEOS -->
+    <div class="videos-section">
+        <h2>🎵 Musikvideos & Live-Auftritte</h2>
+
+        <h3>🎬 Jaz Sings Musikvideos — scroll für mehr →</h3>
+        <div class="video-scroll-wrapper">
+            <div class="video-scroll">
+                <iframe src="https://www.youtube.com/embed/bjfrqi7nq7M" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/GXtCFNLR3Ic" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/1E32pVIgF2o" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/HI7NX1z7j74" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/X4ugBnHI3VI" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/AVpCPhS7u-E" allowfullscreen></iframe>
+            </div>
+            <p class="scroll-hint">← scroll für mehr Videos →</p>
+        </div>
+
+        <h3>🎤 Jaz Sings Live — scroll für mehr →</h3>
+        <div class="video-scroll-wrapper">
+            <div class="video-scroll">
+                <iframe src="https://www.youtube.com/embed/Mnt5o8kcAIg" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-I0ygxdGc7U" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/9M6zLLYP0-w" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/KNtshDM53z4" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-plJ-S5NL_Y" allowfullscreen></iframe>
+            </div>
+            <p class="scroll-hint">← scroll für mehr Videos →</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="fotos-header">
+        <h2>📸 Fotos & Impressionen</h2>
+    </div>
+
+    <!-- FOTO GRID - links nach rechts, oben nach unten, Jahr sortiert -->
+    <div class="photo-grid">
+
+        <!-- 2025 -->
+        <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-1.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-2.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-3.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-4.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-5.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-6.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-köln-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-3.jpg" onclick="openLightbox(this.src)">
+
+        <!-- 2024 -->
+        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-5.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-5.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-bregenz-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-moarwirt-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-2.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-6.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-johannes-olympiapark.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="galerie-2024-olympiapark-br%C3%BCcke-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-sofaconcertsheinzpeter-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-4.jpg" onclick="openLightbox(this.src)">
+
+        <!-- 2023 -->
+        <img loading="lazy" src="images/Galerie/galerie-2023-Daslihotzky-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-dianatempel.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-1.png" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-3.png" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-4.png" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-1.JPG" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-2.jpg" onclick="openLightbox(this.src)">
+
+        <!-- 2022 -->
+        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-4.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-1.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-2.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-3.jpg" onclick="openLightbox(this.src)">
+        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-4.jpg" onclick="openLightbox(this.src)">
+
+        <!-- 2021 -->
+        <img loading="lazy" src="images/Galerie/galerie-2021-englischergarten.jpg" onclick="openLightbox(this.src)">
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">×</span>
+        <img id="lightbox-img" src="">
+    </div>
+
+    <footer>
+        <p>© 2026 Jaz Sings · <a href="mailto:Info@jazsings.com">Info@jazsings.com</a></p>
+    </footer>
+
+    <script>
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('loaded');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        images.forEach(img => {
+            img.addEventListener('load', () => img.classList.add('loaded'));
+            if (img.complete) img.classList.add('loaded');
+            observer.observe(img);
+        });
+
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
