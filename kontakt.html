@@ -13,25 +13,201 @@
       --trennlinie: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--dunkelblau); color: #f0eee8; font-family: 'Montserrat', sans-serif; font-weight: 300; min-height: 100vh; display: flex; flex-direction: column; }
-    nav { background: var(--dunkelblau); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(168,216,234,0.15); }
+    body { background: var(--dunkelblau); color: #f0eee8; font-family: 'Montserrat', sans-serif; font-weight: 300; }
+
+    nav {
+      background: var(--dunkelblau);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(168,216,234,0.15);
+    }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 48px; width: 48px; border-radius: 50%; object-fit: cover; }
     .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--hellblau); letter-spacing: 3px; text-transform: uppercase; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
     .nav-links a { color: #ccc; text-decoration: none; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--hellblau); }
+
     .divider { height: 25px; background: var(--trennlinie); }
-    main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
-    .icon { font-size: 3.5rem; margin-bottom: 24px; opacity: 0.6; }
-    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; letter-spacing: 6px; text-transform: uppercase; color: var(--hellblau); margin-bottom: 20px; }
-    p { font-size: 0.9rem; letter-spacing: 2px; color: #aaa; line-height: 2; }
-    .back-link { margin-top: 40px; display: inline-block; padding: 10px 28px; border: 1px solid rgba(168,216,234,0.35); border-radius: 2px; color: var(--hellblau); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.3s; }
-    .back-link:hover { background: rgba(168,216,234,0.1); }
-    footer { background: #0d0d1a; text-align: center; padding: 30px 20px; font-size: 0.75rem; letter-spacing: 2px; color: #555; text-transform: uppercase; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d0d1a 0%, #1a1a2e 50%, #2d1a3a 100%);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      color: var(--hellblau);
+      margin-bottom: 16px;
+    }
+    .hero-content p { font-size: 0.85rem; letter-spacing: 3px; color: #ccc; text-transform: uppercase; }
+
+    /* MAIN GRID */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 40px;
+      gap: 80px;
+    }
+
+    /* FORMULAR */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--hellblau);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-sub { font-size: 0.8rem; color: #aaa; letter-spacing: 2px; margin-bottom: 36px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(168,216,234,0.05);
+      border: 1px solid rgba(168,216,234,0.2);
+      border-radius: 2px;
+      padding: 12px 16px;
+      color: #f0eee8;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--hellblau); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .submit-btn {
+      background: transparent;
+      border: 1px solid var(--hellblau);
+      color: var(--hellblau);
+      padding: 14px 40px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { background: var(--hellblau); color: var(--dunkelblau); }
+
+    /* KONTAKTINFO */
+    .contact-item { margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(168,216,234,0.1); }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-label { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; color: var(--flieder); margin-bottom: 5px; }
+    .contact-value { font-size: 0.88rem; color: #e0d8f0; letter-spacing: 1px; line-height: 1.7; }
+
+    /* FOTO TRIO */
+  .foto-trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 420px;
+    overflow: hidden;
+    background: #0d0d1a;
+  }
+  .foto-trio-item {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d0d1a;
+  }
+  .foto-trio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: saturate(0.75) brightness(0.9);
+    transition: filter 0.4s, transform 0.4s;
+  }
+  .foto-trio-item img:hover {
+    filter: saturate(1) brightness(1);
+    transform: scale(1.02);
+  }
+  .foto-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto 70px;
+    padding: 0 40px;
+    gap: 20px;
+  }
+  .foto-strip img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.7) brightness(0.85);
+    transition: filter 0.4s, transform 0.4s;
+  }
+  .foto-strip img:hover {
+    filter: saturate(1) brightness(1);
+    transform: scale(1.01);
+  }
+    .legal-section { background: #0d0d1a; padding: 60px 40px; }
+    .legal-inner { max-width: 900px; margin: 0 auto; }
+    .legal-tabs { display: flex; margin-bottom: 40px; border-bottom: 1px solid rgba(168,216,234,0.2); }
+    .legal-tab {
+      padding: 12px 32px;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #aaa;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .legal-tab.active { color: var(--hellblau); border-bottom-color: var(--hellblau); }
+    .legal-content { display: none; }
+    .legal-content.active { display: block; }
+    .legal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--hellblau); letter-spacing: 2px; margin-top: 28px; margin-bottom: 10px; }
+    .legal-content p { font-size: 0.78rem; line-height: 1.9; color: #777; margin-bottom: 10px; }
+    .legal-content a { color: #999; }
+
+    footer { background: #080810; text-align: center; padding: 30px 20px; font-size: 0.75rem; letter-spacing: 2px; color: #555; text-transform: uppercase; }
+    footer a { color: #777; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .main-grid { grid-template-columns: 1fr; padding: 40px 20px; gap: 50px; }
+      .form-row { grid-template-columns: 1fr; }
+      .legal-section { padding: 40px 20px; }
+    }
   </style>
 </head>
 <body>
+
 <nav>
   <a class="nav-logo" href="index.html">
     <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
@@ -45,16 +221,146 @@
     <li><a href="kontakt.html" class="active">Kontakt</a></li>
   </ul>
 </nav>
+
 <div class="divider"></div>
-<main>
-  <div class="icon">✉️</div>
-  <h1>Kontakt</h1>
-  <p>Hier wird gerade gebaut –<br>schau in Kürze noch einmal rein! :-)<br><br>
-  In der Zwischenzeit erreichst du mich unter<br>
-  <a href="mailto:info@jazsings.com" style="color: var(--hellblau); text-decoration: none;">info@jazsings.com</a></p>
-  <a class="back-link" href="index.html">← Zurück zur Startseite</a>
-</main>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Kontakt</h1>
+    <p>Ich freue mich auf deine Nachricht 🎵</p>
+  </div>
+</div>
+
 <div class="divider"></div>
-<footer>© 2025 Jaz Sings</footer>
+
+<!-- DREI FOTOS NEBENEINANDER -->
+<div class="foto-trio">
+  <div class="foto-trio-item"><img src="images/Kontakt/kontakt-2024-pink-1.jpg" alt="Jaz Sings" /></div>
+  <div class="foto-trio-item"><img src="images/Kontakt/kontakt-2024-pink-2.jpg" alt="Jaz Sings" /></div>
+  <div class="foto-trio-item"><img src="images/Kontakt/kontakt-2024-pink-3.jpg" alt="Jaz Sings" /></div>
+</div>
+
+<div class="divider"></div>
+
+<div class="main-grid">
+
+  <div class="form-section">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-sub">Schreib mir — ich antworte so schnell ich kann 😊</p>
+    <form action="https://formspree.io/f/xnjwwwnb" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Vorname</label>
+          <input type="text" name="vorname" placeholder="Dein Vorname" />
+        </div>
+        <div class="form-group">
+          <label>Nachname</label>
+          <input type="text" name="nachname" placeholder="Dein Nachname" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>E-Mail *</label>
+        <input type="email" name="email" placeholder="deine@email.de" required />
+      </div>
+      <div class="form-group">
+        <label>Nachricht</label>
+        <textarea name="nachricht" placeholder="Deine Nachricht..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Senden</button>
+    </form>
+  </div>
+
+  <div class="contact-section">
+    <h2 class="section-title">Direktkontakt</h2>
+    <p class="section-sub">Alle Wege zu Jaz Sings</p>
+
+    <div class="contact-item">
+      <div class="contact-label">E-Mail</div>
+      <div class="contact-value">info@jazsings.com</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Telefon &amp; WhatsApp</div>
+      <div class="contact-value">+49 177 225 2520</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Instagram</div>
+      <div class="contact-value">@jaz__sings</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Facebook</div>
+      <div class="contact-value">facebook.com/jazsingz</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">TikTok</div>
+      <div class="contact-value">@jaz__sings</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">YouTube</div>
+      <div class="contact-value">@jazsings</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Telegram</div>
+      <div class="contact-value">t.me/jazsings</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Sofaconcerts</div>
+      <div class="contact-value">sofaconcerts.org/de/artists/JazSings</div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="legal-section">
+  <div class="legal-inner">
+    <div class="legal-tabs">
+      <div class="legal-tab active" onclick="showTab('impressum', this)">Impressum</div>
+      <div class="legal-tab" onclick="showTab('datenschutz', this)">Datenschutz</div>
+    </div>
+
+    <div class="legal-content active" id="impressum">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>Jasmin Alber · JAZ SINGS<br>Wandletstr. 6 · 80805 München<br>Telefon: +49 177 225 2520<br>E-Mail: info@jazsings.com</p>
+      <h3>Redaktionell verantwortlich</h3>
+      <p>Jasmin Alber · Wandletstr. 6 · 80805 München</p>
+      <h3>Verbraucherstreitbeilegung</h3>
+      <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+      <h3>Quelle</h3>
+      <p><a href="https://www.e-recht24.de/impressum-generator.html" target="_blank">e-recht24.de</a></p>
+    </div>
+
+    <div class="legal-content" id="datenschutz">
+      <h3>1. Datenschutz auf einen Blick</h3>
+      <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+      <h3>Verantwortliche Stelle</h3>
+      <p>Jasmin Alber · Wandletstr. 6 · 80805 München · info@jazsings.com</p>
+      <h3>2. Hosting</h3>
+      <p>Wir hosten unsere Website bei Cloudflare Pages (Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA). Details: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">cloudflare.com/privacypolicy</a>.</p>
+      <h3>3. Ihre Rechte</h3>
+      <p>Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten sowie ein Recht auf Berichtigung oder Löschung. Wenden Sie sich dazu an: info@jazsings.com.</p>
+      <h3>4. Kontaktformular</h3>
+      <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben zwecks Bearbeitung gespeichert. Das Formular wird über Formspree (Formspree Inc., USA) verarbeitet. Details: <a href="https://formspree.io/legal/privacy-policy" target="_blank">formspree.io/legal/privacy-policy</a>.</p>
+      <h3>5. YouTube</h3>
+      <p>Diese Website bindet Videos von YouTube ein (Google Ireland Limited, Dublin 4, Irland). Beim Besuch wird eine Verbindung zu YouTube-Servern hergestellt. Weitere Infos: <a href="https://policies.google.com/privacy?hl=de" target="_blank">policies.google.com/privacy</a>.</p>
+      <h3>6. SSL-Verschlüsselung</h3>
+      <p>Diese Seite nutzt SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://" und dem Schloss-Symbol in der Browserzeile.</p>
+      <p style="margin-top:20px;color:#555;">Quelle: <a href="https://www.e-recht24.de" target="_blank">e-recht24.de</a> (angepasst für Cloudflare Pages &amp; Formspree)</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Jaz Sings &nbsp;·&nbsp; <a href="mailto:info@jazsings.com">info@jazsings.com</a></p>
+</footer>
+
+<script>
+  function showTab(name, el) {
+    document.querySelectorAll('.legal-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.legal-content').forEach(c => c.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
