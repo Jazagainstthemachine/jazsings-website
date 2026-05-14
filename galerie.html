@@ -38,27 +38,14 @@
         .page-header h1 { font-size: 2.5rem; color: #a8d8ea; margin-bottom: 10px; }
         .page-header p { font-size: 1.1rem; color: #ccc; }
 
-        /* VIDEOS SECTION */
         .videos-section {
             padding: 50px 20px;
             max-width: 1300px;
             margin: 0 auto;
         }
-        .videos-section h2 {
-            text-align: center;
-            font-size: 1.8rem;
-            color: #1a1a2e;
-            margin-bottom: 10px;
-        }
-        .videos-section h3 {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 15px;
-            margin-top: 30px;
-        }
-        .video-scroll-wrapper {
-            position: relative;
-        }
+        .videos-section h2 { text-align: center; font-size: 1.8rem; color: #1a1a2e; margin-bottom: 10px; }
+        .videos-section h3 { font-size: 1.1rem; color: #555; margin-bottom: 15px; margin-top: 30px; }
+        .video-scroll-wrapper { position: relative; }
         .video-scroll {
             display: flex;
             gap: 15px;
@@ -71,32 +58,33 @@
         .video-scroll::-webkit-scrollbar { height: 6px; }
         .video-scroll::-webkit-scrollbar-track { background: #f0f8ff; }
         .video-scroll::-webkit-scrollbar-thumb { background: #a8d8ea; border-radius: 10px; }
-        .video-scroll iframe {
-            flex-shrink: 0;
-            width: 320px;
-            height: 180px;
-            border-radius: 10px;
-            border: none;
-        }
-        .scroll-hint {
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 8px;
-        }
+        .video-scroll iframe { flex-shrink: 0; width: 320px; height: 180px; border-radius: 10px; border: none; }
+        .scroll-hint { text-align: center; color: #888; font-size: 0.9rem; margin-top: 8px; }
 
-        /* FOTOS SECTION */
-        .fotos-header {
+        /* ANFRAGEN BUTTON */
+        .anfragen-wrap {
             text-align: center;
-            padding: 50px 20px 20px;
+            padding: 40px 20px;
         }
-        .fotos-header h2 {
-            font-size: 1.8rem;
-            color: #1a1a2e;
-            margin-bottom: 10px;
+        .anfragen-btn {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #a8d8ea;
+            border: 2px solid #a8d8ea;
+            padding: 16px 52px;
+            font-family: Georgia, serif;
+            font-size: 1.05rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: background 0.3s, color 0.3s;
         }
+        .anfragen-btn:hover { background: #a8d8ea; color: #1a1a2e; }
 
-        /* GRID - links nach rechts, oben nach unten */
+        .fotos-header { text-align: center; padding: 50px 20px 20px; }
+        .fotos-header h2 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 10px; }
+
         .photo-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -121,7 +109,6 @@
         .photo-grid img.loaded { opacity: 1; }
         .photo-grid img:hover { transform: scale(1.02); }
 
-        /* LIGHTBOX */
         .lightbox {
             display: none;
             position: fixed;
@@ -136,14 +123,7 @@
         .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 10px; }
         .lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 3rem; cursor: pointer; }
 
-        footer {
-            background: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            margin-top: 50px;
-        }
+        footer { background: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; margin-top: 50px; }
         footer a { color: #a8d8ea; }
     </style>
 </head>
@@ -181,8 +161,6 @@
 
     <div class="divider"></div>
 
-    <!-- VIDEOS -->
-    <!-- VIDEOS -->
     <div class="videos-section">
         <h2>🎵 Musikvideos & Live-Auftritte</h2>
 
@@ -212,15 +190,18 @@
         </div>
     </div>
 
+    <!-- JETZT ANFRAGEN BUTTON -->
+    <div class="anfragen-wrap">
+        <a href="buchen.html" class="anfragen-btn">Jetzt Jaz anfragen</a>
+    </div>
+
     <div class="divider"></div>
 
     <div class="fotos-header">
         <h2>📸 Fotos & Impressionen</h2>
     </div>
 
-    <!-- FOTO GRID - links nach rechts, oben nach unten, Jahr sortiert -->
     <div class="photo-grid">
-
         <!-- 2025 -->
         <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-2.jpg" onclick="openLightbox(this.src)">
@@ -252,7 +233,6 @@
         <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-2.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-3.jpg" onclick="openLightbox(this.src)">
-
         <!-- 2024 -->
         <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-2.jpg" onclick="openLightbox(this.src)">
@@ -308,7 +288,6 @@
         <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-2.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-3.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-4.jpg" onclick="openLightbox(this.src)">
-
         <!-- 2023 -->
         <img loading="lazy" src="images/Galerie/galerie-2023-Daslihotzky-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-1.jpg" onclick="openLightbox(this.src)">
@@ -331,7 +310,6 @@
         <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-3.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-2.jpg" onclick="openLightbox(this.src)">
-
         <!-- 2022 -->
         <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-1.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-2.jpg" onclick="openLightbox(this.src)">
@@ -347,13 +325,10 @@
         <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-2.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-3.jpg" onclick="openLightbox(this.src)">
         <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-4.jpg" onclick="openLightbox(this.src)">
-
         <!-- 2021 -->
         <img loading="lazy" src="images/Galerie/galerie-2021-englischergarten.jpg" onclick="openLightbox(this.src)">
-
     </div>
 
-    <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close">×</span>
         <img id="lightbox-img" src="">
@@ -378,7 +353,6 @@
             if (img.complete) img.classList.add('loaded');
             observer.observe(img);
         });
-
         function openLightbox(src) {
             document.getElementById('lightbox-img').src = src;
             document.getElementById('lightbox').classList.add('active');
@@ -390,6 +364,5 @@
             if (e.key === 'Escape') closeLightbox();
         });
     </script>
-
 </body>
 </html>
