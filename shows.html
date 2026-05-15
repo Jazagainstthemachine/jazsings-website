@@ -23,25 +23,26 @@
     }
 
     nav {
-      background: var(--dunkelblau);
-      padding: 18px 40px;
+      background: #1a1a2e;
+      padding: 15px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
       position: sticky;
       top: 0;
       z-index: 100;
-      border-bottom: 1px solid rgba(168,216,234,0.15);
     }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 48px; width: 48px; border-radius: 50%; object-fit: cover; }
-    .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--hellblau); letter-spacing: 3px; text-transform: uppercase; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a { color: #ccc; text-decoration: none; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--hellblau); }
-    .nav-social { display: flex; gap: 14px; align-items: center; }
-    .nav-social a { color: #aaa; font-size: 1.1rem; transition: color 0.3s; text-decoration: none; }
-    .nav-social a:hover { color: var(--hellblau); }
+    .nav-logo img { height: 50px; border-radius: 50%; object-fit: cover; }
+    .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; font-family: 'Montserrat', sans-serif; }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+    .nav-links a:hover, .nav-links a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+    .nav-social { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .nav-social a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
+    .nav-social a:hover { background: #a8d8ea; color: #1a1a2e; }
 
     .divider { height: 25px; background: var(--trennlinie); }
 
@@ -140,7 +141,7 @@
 <nav>
   <a class="nav-logo" href="index.html">
     <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
-    <span>Jaz Sings</span>
+    <span>JAZ SINGS</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -150,8 +151,13 @@
     <li><a href="kontakt.html">Kontakt</a></li>
   </ul>
   <div class="nav-social">
-    <a href="https://www.instagram.com/jaz__sings/" target="_blank" title="Instagram">&#9825;</a>
-    <a href="https://www.youtube.com/@jazsings" target="_blank" title="YouTube">&#9654;</a>
+    <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@jazsings" target="_blank">YouTube</a>
+    <a href="https://T.me/jazsings" target="_blank">Telegram</a>
+    <a href="https://wa.me/491772252520" target="_blank">WhatsApp</a>
+    <a href="mailto:Info@jazsings.com">E-Mail</a>
   </div>
 </nav>
 
@@ -528,3 +534,4 @@
 </footer>
 
 </body>
+</html>
