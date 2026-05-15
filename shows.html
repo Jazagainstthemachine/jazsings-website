@@ -22,7 +22,6 @@
       font-weight: 300;
     }
 
-    /* ─── NAVIGATION ─── */
     nav {
       background: var(--dunkelblau);
       padding: 18px 40px;
@@ -34,108 +33,26 @@
       z-index: 100;
       border-bottom: 1px solid rgba(168,216,234,0.15);
     }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .nav-logo img {
-      height: 48px;
-      width: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .nav-logo span {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--hellblau);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--hellblau); }
-
-    .nav-social {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .nav-social a {
-      color: #aaa;
-      font-size: 1.1rem;
-      transition: color 0.3s;
-      text-decoration: none;
-    }
-
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 48px; width: 48px; border-radius: 50%; object-fit: cover; }
+    .nav-logo span { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--hellblau); letter-spacing: 3px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #ccc; text-decoration: none; font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--hellblau); }
+    .nav-social { display: flex; gap: 14px; align-items: center; }
+    .nav-social a { color: #aaa; font-size: 1.1rem; transition: color 0.3s; text-decoration: none; }
     .nav-social a:hover { color: var(--hellblau); }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 25px;
-      background: var(--trennlinie);
-    }
+    .divider { height: 25px; background: var(--trennlinie); }
 
-    /* ─── PAGE HEADER ─── */
-    .page-header {
-      text-align: center;
-      padding: 70px 20px 50px;
-      background: linear-gradient(180deg, #0d0d1a 0%, var(--dunkelblau) 100%);
-    }
+    .page-header { text-align: center; padding: 70px 20px 50px; background: linear-gradient(180deg, #0d0d1a 0%, var(--dunkelblau) 100%); }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; color: var(--hellblau); }
+    .page-header p { margin-top: 16px; font-size: 0.85rem; letter-spacing: 3px; color: #aaa; text-transform: uppercase; }
 
-    .page-header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.8rem, 6vw, 4.5rem);
-      font-weight: 300;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      color: var(--hellblau);
-    }
+    .shows-container { max-width: 100%; margin: 0; padding: 0 3cm; }
 
-    .page-header p {
-      margin-top: 16px;
-      font-size: 0.85rem;
-      letter-spacing: 3px;
-      color: #aaa;
-      text-transform: uppercase;
-    }
+    .show-card { display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
 
-    /* ─── SHOWS CONTAINER ─── */
-    .shows-container {
-      max-width: 100%;
-      margin: 0;
-      padding: 0 3cm;
-    }
-
-    /* ─── SHOW CARD ─── 50/50, Bild links, Text rechts ─── */
-    .show-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      overflow: hidden;
-    }
-
-    /* Abwechselnde Hintergrundfarben */
     .show-card:nth-child(1)  { background: #2a2a4a; }
     .show-card:nth-child(2)  { background: #1e3040; }
     .show-card:nth-child(3)  { background: #2d2040; }
@@ -156,15 +73,7 @@
     .show-card:nth-child(18) { background: #1e3040; }
     .show-card:nth-child(19) { background: #2d2040; }
 
-    /* ─── BILD ─── volle Breite, kein festes Seitenverhältnis, contain ─── */
-    .show-image-wrap {
-      width: 100%;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-    }
+    .show-image-wrap { width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 300px; }
 
     .show-card:nth-child(1)  .show-image-wrap { background: #2a2a4a; }
     .show-card:nth-child(2)  .show-image-wrap { background: #1e3040; }
@@ -186,134 +95,48 @@
     .show-card:nth-child(18) .show-image-wrap { background: #1e3040; }
     .show-card:nth-child(19) .show-image-wrap { background: #2d2040; }
 
-    .show-image-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s;
-    }
+    .show-image-wrap img { width: 100%; height: auto; display: block; transition: transform 0.4s; }
+    .show-card:hover .show-image-wrap img { transform: scale(1.04); }
 
-    .show-card:hover .show-image-wrap img {
-      transform: scale(1.04);
-    }
-
-    /* ─── TEXT ─── rechts, zentriert, gleich hoch wie Bild ─── */
     .show-info {
-      padding: 40px 44px;
+      padding: 52px 44px;
       display: flex;
       flex-direction: column;
       gap: 14px;
       justify-content: center;
       align-items: center;
       text-align: center;
+      min-height: 320px;
     }
 
-    .show-year {
-      font-size: 0.7rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--hellblau);
-      opacity: 0.6;
-    }
+    .show-year { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--hellblau); opacity: 0.6; }
+    .show-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 400; color: var(--hellblau); letter-spacing: 2px; text-transform: uppercase; line-height: 1.3; }
+    .show-meta { display: flex; flex-direction: column; gap: 5px; padding-top: 4px; border-top: 1px solid rgba(168,216,234,0.15); }
+    .show-date { font-size: 0.88rem; color: #e0d8f0; letter-spacing: 1px; }
+    .show-location { font-size: 0.8rem; color: #aaa; letter-spacing: 1px; }
+    .show-description { font-size: 0.82rem; line-height: 1.85; color: #ccc; }
+    .show-links { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; justify-content: center; }
+    .show-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1px solid rgba(168,216,234,0.4); border-radius: 2px; color: var(--hellblau); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.3s, border-color 0.3s; }
+    .show-link:hover { background: rgba(168,216,234,0.12); border-color: var(--hellblau); }
 
-    .show-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 400;
-      color: var(--hellblau);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      line-height: 1.3;
-    }
-
-    .show-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      padding-top: 4px;
-      border-top: 1px solid rgba(168,216,234,0.15);
-    }
-
-    .show-date {
-      font-size: 0.88rem;
-      color: #e0d8f0;
-      letter-spacing: 1px;
-    }
-
-    .show-location {
-      font-size: 0.8rem;
-      color: #aaa;
-      letter-spacing: 1px;
-    }
-
-    .show-description {
-      font-size: 0.82rem;
-      line-height: 1.85;
-      color: #ccc;
-    }
-
-    .show-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 6px;
-    }
-
-    .show-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 18px;
-      border: 1px solid rgba(168,216,234,0.4);
-      border-radius: 2px;
-      color: var(--hellblau);
-      font-size: 0.72rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background 0.3s, border-color 0.3s;
-    }
-
-    .show-link:hover {
-      background: rgba(168,216,234,0.12);
-      border-color: var(--hellblau);
-    }
-
-    /* Gerade Cards: Bild rechts, Text links */
-    .show-card:nth-child(even) {
-      direction: rtl;
-    }
+    .show-card:nth-child(even) { direction: rtl; }
     .show-card:nth-child(even) .show-info,
-    .show-card:nth-child(even) .show-image-wrap {
-      direction: ltr;
-    }
+    .show-card:nth-child(even) .show-image-wrap { direction: ltr; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      background: #0d0d1a;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      color: #555;
-      text-transform: uppercase;
-    }
-
+    footer { background: #0d0d1a; text-align: center; padding: 40px 20px; font-size: 0.75rem; letter-spacing: 2px; color: #555; text-transform: uppercase; }
     footer a { color: #777; text-decoration: none; }
     footer a:hover { color: var(--hellblau); }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 680px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .show-card { grid-template-columns: 1fr; }
-      .show-info { padding: 24px 20px; }
+      .show-info { padding: 24px 20px; min-height: unset; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav>
   <a class="nav-logo" href="index.html">
     <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
@@ -334,7 +157,6 @@
 
 <div class="divider"></div>
 
-<!-- PAGE HEADER -->
 <div class="page-header">
   <h1>Shows</h1>
   <p>Auftritte &amp; Veranstaltungen</p>
@@ -342,16 +164,15 @@
 
 <div class="divider"></div>
 
-<!-- SHOWS -->
 <div class="shows-container">
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2026-02-14-valentinstag-sportivo.jpg" alt="Valentinstag Pizzeria Sportivo Seefeld" />
+      <img src="images/Shows/shows-2026-02-14-valentinstag-sportivo.jpg" alt="Valentinstag Restaurant Sportivo Seefeld" />
     </div>
     <div class="show-info">
       <div class="show-year">2026</div>
-      <div class="show-title">Valentinstagsdinner – Pizzeria Pizza Sportivo Seefeld</div>
+      <div class="show-title">Jaz Sings im Restaurant Sportivo zum Valentinstagsdinner</div>
       <div class="show-meta">
         <div class="show-date">Samstag, 14. Februar 2026</div>
         <div class="show-location">Pizzeria Pizza Sportivo · Seefeld am Pilsensee</div>
@@ -360,6 +181,46 @@
       <div class="show-links">
         <a class="show-link" href="https://pizzeria-pizza-sportivo-seefeld.de" target="_blank">Restaurant</a>
         <a class="show-link" href="https://www.instagram.com/reel/DUrIkc5jJFE/" target="_blank">Instagram Reel</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-card">
+    <div class="show-image-wrap">
+      <img src="images/Shows/shows-2025-12-15-weihnachtsmarkt.jpg" alt="Sendlinger Bergweihnacht 2025" />
+    </div>
+    <div class="show-info">
+      <div class="show-year">2025</div>
+      <div class="show-title">Jaz Sings auf der Sendlinger Bergweihnacht</div>
+      <div class="show-meta">
+        <div class="show-date">Montag, 15. Dezember 2025 · 17:00 – 20:00 Uhr</div>
+        <div class="show-date">Dienstag, 23. Dezember 2025 · 17:00 – 20:00 Uhr</div>
+        <div class="show-location">Am Harras, 81373 München</div>
+      </div>
+      <div class="show-description">Gefühlvoller Popjazz für alle Fans einer besinnlichen Weihnachtszeit! Lasst Euch verzaubern 🤩</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.sendlinger-bergweihnacht.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/sendlingerbergweihnacht/" target="_blank">Instagram</a>
+        <a class="show-link" href="https://www.facebook.com/SendlingerBergweihnacht/" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-card">
+    <div class="show-image-wrap">
+      <img src="images/Shows/show-2025-jattlebam-1.jpg" alt="Jattle BAM Poetry 2025" />
+    </div>
+    <div class="show-info">
+      <div class="show-year">2025</div>
+      <div class="show-title">Jaz Sings auf dem Jattlebam + Poetry</div>
+      <div class="show-meta">
+        <div class="show-date">27. September 2025 · ab 19 Uhr</div>
+        <div class="show-location">Kulturhaus Milbertshofen · Curt-Mezger-Platz 1, München</div>
+      </div>
+      <div class="show-description">Das gefeierte Wiener Format kommt erstmals nach München: Zwei mixed-abled Teams improvisieren mit Tanz, Musik &amp; Poesie – miteinander, gegeneinander und im Dialog mit dem Publikum. DanceAbility, Live-Musik und gesprochene Poesie verschmelzen zu einer unvergesslichen Performance. Jaz Sings ist als Musikerin dabei.<br>Eintritt frei – Spenden willkommen!</div>
+      <div class="show-links">
+        <a class="show-link" href="https://gemeinwohlwohnen.de/neuigkeiten/einladung-zur-jattle-bam-poetry/" target="_blank">Mehr Infos</a>
+        <a class="show-link" href="https://www.youtube.com/watch?v=DwdFYOS1D_4" target="_blank">▶ Video</a>
       </div>
     </div>
   </div>
@@ -375,38 +236,28 @@
         <div class="show-date">Mittwoch, 23. Juli 2025 · 19:00 – 21:55 Uhr</div>
         <div class="show-location">Waldheim Gräfelfing · Geigerstraße 33, 82166 Gräfelfing</div>
       </div>
-    </div>
-  </div>
-
-  <div class="show-card">
-    <div class="show-image-wrap">
-      <img src="images/Shows/show-2025-jattlebam-1.jpg" alt="Jattle BAM Poetry 2025" />
-    </div>
-    <div class="show-info">
-      <div class="show-year">2025</div>
-      <div class="show-title">Jaz Sings bei „Jattle, BAM + Poetry"</div>
-      <div class="show-meta">
-        <div class="show-date">27. September 2025 · ab 19 Uhr</div>
-        <div class="show-location">Kulturhaus Milbertshofen · Curt-Mezger-Platz 1, München</div>
-      </div>
-      <div class="show-description">Das gefeierte Wiener Format kommt erstmals nach München: Zwei mixed-abled Teams improvisieren mit Tanz, Musik &amp; Poesie – miteinander, gegeneinander und im Dialog mit dem Publikum. DanceAbility, Live-Musik und gesprochene Poesie verschmelzen zu einer unvergesslichen Performance. Jaz Sings ist als Musikerin dabei.<br>Eintritt frei – Spenden willkommen!</div>
+      <div class="show-description">Der wunderschöne Biergarten befindet sich mitten in einer abgelegenen Waldlandschaft für ein entspanntes Beisammensein und bayrisches Lebensgefühl. Ein großer Spielplatz, Tischtennisplatten und eine Stockbahn stehen bereit.</div>
       <div class="show-links">
-        <a class="show-link" href="https://gemeinwohlwohnen.de/neuigkeiten/einladung-zur-jattle-bam-poetry/" target="_blank">Mehr Infos</a>
-        <a class="show-link" href="https://www.youtube.com/watch?v=DwdFYOS1D_4" target="_blank">▶ Video</a>
+        <a class="show-link" href="https://www.waldheim-graefelfing.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/waldheim_graefelfing/" target="_blank">Instagram</a>
       </div>
     </div>
   </div>
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2025-05-25-autohausmoser.jpg" alt="Autohaus Moser Germering" />
+      <img src="images/Shows/shows-2024-05-25-autohausmoser.jpg" alt="Autohaus Moser Germering" />
     </div>
     <div class="show-info">
       <div class="show-year">2025</div>
-      <div class="show-title">Happy Festival – Neueröffnung Autohaus Moser</div>
+      <div class="show-title">Jaz Sings zum Happy Festival im Autohaus Moser</div>
       <div class="show-meta">
         <div class="show-date">25. Mai 2025 · ab 11 Uhr</div>
         <div class="show-location">Maria-von-Linden-Straße 7, 82110 Germering</div>
+      </div>
+      <div class="show-description">Ein tolles Fest zur Neueröffnung – für die ganze Familie!<br>· Buffet · Grill · Hüpfburg · Gewinnspiel</div>
+      <div class="show-links">
+        <a class="show-link" href="https://autohaus-moser.de" target="_blank">Website</a>
       </div>
     </div>
   </div>
@@ -427,18 +278,21 @@
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2024-12-02-weihnachtsmarkt.jpg" alt="Sendlinger Bergweihnacht" />
+      <img src="images/Shows/shows-2024-12-02-weihnachtsmarkt.jpg" alt="Sendlinger Bergweihnacht 2024" />
     </div>
     <div class="show-info">
-      <div class="show-year">2024 / 2025</div>
-      <div class="show-title">Jaz Sings auf dem Sendlinger Weihnachtsmarkt</div>
+      <div class="show-year">2024</div>
+      <div class="show-title">Jaz Sings auf der Sendlinger Bergweihnacht</div>
       <div class="show-meta">
-        <div class="show-date">Sendlinger Bergweihnacht · Am Harras, 81373 München</div>
         <div class="show-date">Montag, 02. Dezember 2024 · 17:00 – 20:00 Uhr</div>
-        <div class="show-date">Montag, 15. Dezember 2025 · 17:00 – 20:00 Uhr</div>
-        <div class="show-date">Dienstag, 23. Dezember 2025 · 17:00 – 20:00 Uhr</div>
+        <div class="show-location">Am Harras, 81373 München</div>
       </div>
       <div class="show-description">Gefühlvoller Popjazz für alle Fans einer besinnlichen Weihnachtszeit! Lasst Euch verzaubern 🤩</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.sendlinger-bergweihnacht.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/sendlingerbergweihnacht/" target="_blank">Instagram</a>
+        <a class="show-link" href="https://www.facebook.com/SendlingerBergweihnacht/" target="_blank">Facebook</a>
+      </div>
     </div>
   </div>
 
@@ -448,12 +302,16 @@
     </div>
     <div class="show-info">
       <div class="show-year">2024</div>
-      <div class="show-title">Jaz Sings beim Isarinselfest</div>
+      <div class="show-title">Jaz Sings auf dem Isarinselfest</div>
       <div class="show-meta">
         <div class="show-date">Samstag, 07. September 2024 · 13:00 Uhr</div>
-        <div class="show-location">ACHTUNG: Bühne verlegt – neuer Ort: Parkplatz der Praterinsel</div>
+        <div class="show-location">Parkplatz der Praterinsel · München</div>
       </div>
-      <div class="show-description">Jaz Sings mit tiefer Wärme und Empfindsamkeit für all unsere menschlichen Gefühle. Mit puristisch klaren Gitarrentönen und einer gefühlvollen Stimme lädt Jaz uns ein, den verschlungenen Wegen des Lebens zu folgen. Ein Genuss für alle, die sich gerne zum Träumen verführen lassen.</div>
+      <div class="show-description">Das Isarinselfest ist Münchens großes, soziales Stadtfest an der Isar – getragen von AWO, ASB und ehrenamtlichen Helfer*innen. Musik, Kultur, Kabarett und ein besonderes Gemeinschaftsgefühl für alle Münchner*innen. Der Eintritt ist frei! Jaz Sings bringt ihre Musik auf die Bühne.</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.isarinselfest.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/isarinselfest/" target="_blank">Instagram</a>
+      </div>
     </div>
   </div>
 
@@ -463,7 +321,7 @@
     </div>
     <div class="show-info">
       <div class="show-year">2024</div>
-      <div class="show-title">Jaz Sings beim Bardentreffen Nürnberg</div>
+      <div class="show-title">Jaz Sings auf dem Bardentreffen in Nürnberg</div>
       <div class="show-meta">
         <div class="show-date">26. / 27. / 28. Juli 2024 – Nürnberg</div>
         <div class="show-location">ab 21 Uhr im Augustinerhof</div>
@@ -478,11 +336,11 @@
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2023-10-07-dianatempel.jpg" alt="Diana Tempel München 2023" />
+      <img src="images/Shows/shows-2023-10-07-dianatempel.jpg" alt="Dianatempel München 2023" />
     </div>
     <div class="show-info">
       <div class="show-year">2023</div>
-      <div class="show-title">Jaz Sings in Diana Tempel</div>
+      <div class="show-title">Jaz Sings im Dianatempel</div>
       <div class="show-meta">
         <div class="show-date">07. Oktober 2023 · 16:00 – 19:00 Uhr</div>
         <div class="show-location">Hofgartenstraße 6, 80539 München</div>
@@ -493,11 +351,29 @@
 
   <div class="show-card">
     <div class="show-image-wrap">
+      <img src="images/Shows/shows-2023-09-29-stadtteilkultur2411.jpg" alt="Stadtteilkultur2411 Vernissage 2023" />
+    </div>
+    <div class="show-info">
+      <div class="show-year">2023</div>
+      <div class="show-title">Jaz Sings auf der Vernissage SIEBDRUCK – Junge Arbeit · Stadtteilkultur 2411 e.V.</div>
+      <div class="show-meta">
+        <div class="show-date">Freitag, 29. September 2023 · 19:00 Uhr</div>
+      </div>
+      <div class="show-description">Die Auszubildenden der Siebdruckwerkstatt stellen vor: Exponate und Drucktechniken, phantasievolle Serigraphien, Entwürfe, Arbeitsschritte, Handwerkszeug und fertige Produkte. Auch eine Live-Druckvorführung ist geplant. Während der Vernissage können Exponate aus der hauseigenen Produktpalette erworben werden.<br><br>Und dazu live – Der Sound von Jaz.<br>Der Eintritt ist frei.</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.stadtteilkultur2411.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/stadtteilkultur2411/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-card">
+    <div class="show-image-wrap">
       <img src="images/Shows/shows-2023-07-29-bardentreffen.jpg" alt="Bardentreffen Nürnberg 2023" />
     </div>
     <div class="show-info">
       <div class="show-year">2023</div>
-      <div class="show-title">Jaz Sings beim Bardentreffen Nürnberg</div>
+      <div class="show-title">Jaz Sings auf dem Bardentreffen in Nürnberg</div>
       <div class="show-meta">
         <div class="show-date">28. / 29. / 30. Juli 2023 – Nürnberg</div>
         <div class="show-location">Freitag, Samstag, Sonntag ab 21 Uhr im Augustinerhof</div>
@@ -518,37 +394,32 @@
       <div class="show-year">2023</div>
       <div class="show-title">Jaz Sings in der KunstOase</div>
       <div class="show-meta">
-        <div class="show-date">15. Juni 2024 · ab 11 Uhr</div>
-        <div class="show-location">Hohenzollernstr. 56, München 80801</div>
+        <div class="show-date">1. Juli 2023 · ab 11 Uhr</div>
+        <div class="show-location">Hohenzollernstr. 56, 80801 München</div>
       </div>
       <div class="show-description">Komm vorbei zum Hofkonzert und zum Bestaunen der 320 qm Antiquitäten und Erstöbern der Schmuckstückchen. In dem wahrscheinlich schönsten Antiquitätenladen in München – die Decke besteht nur aus einem Lampenteppich und alte Gemälde brechen sich in tausenden Spiegeln!</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.kunstoase-schwabing.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/kunstoase_muenchen/" target="_blank">Instagram</a>
+      </div>
     </div>
   </div>
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2023-06-24-kunstauktion.jpg" alt="Kunst-Auktion Haidhausen" />
+      <img src="images/Shows/shows-2023-06-24-kunstauktion.jpg" alt="Kunstauktion Gemeinwohlwohnen 2023" />
     </div>
     <div class="show-info">
       <div class="show-year">2023</div>
-      <div class="show-title">Kunst-Auktion – Gemeinwohlwohnen e.V.</div>
+      <div class="show-title">Jaz Sings auf der Kunstauktion vom Gemeinwohlwohnen e.V.</div>
       <div class="show-meta">
         <div class="show-date">Samstag, 24. Juni 2023 · ab 15 Uhr</div>
         <div class="show-location">Metzgerstraße 5a, Haidhausen</div>
       </div>
       <div class="show-description">Hiermit laden wir dich herzlich zu unserer Kunst-Auktion ein! Bring deine Kunst und versteigere sie gemeinsam mit uns für einen guten Zweck. Für Verpflegung und Live-Musik von Jaz ist gesorgt!</div>
-    </div>
-  </div>
-
-  <div class="show-card">
-    <div class="show-image-wrap">
-      <img src="images/Shows/shows-2023-09-29-stadtteilkultur2411.jpg" alt="Stadtteilkultur 2023" />
-    </div>
-    <div class="show-info">
-      <div class="show-year">2023</div>
-      <div class="show-title">Jaz Sings bei der Stadtteilkultur24</div>
-      <div class="show-meta">
-        <div class="show-date">29. September 2023</div>
+      <div class="show-links">
+        <a class="show-link" href="https://gemeinwohlwohnen.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/gemeinwohlwohnen_ev/" target="_blank">Instagram</a>
       </div>
     </div>
   </div>
@@ -561,10 +432,19 @@
       <div class="show-year">2023</div>
       <div class="show-title">Jaz Sings im Eine-Welt-Haus</div>
       <div class="show-meta">
-        <div class="show-date">5. Februar 2023</div>
+        <div class="show-date">5. Februar 2023 · ab 15 Uhr</div>
         <div class="show-location">Schwanthaler Straße 80, München</div>
       </div>
-      <div class="show-description">Wir laden herzlich ein! Am 5. Februar 2023 wollen wir ZUSAMMENKOMMEN und feiern im Saal des Eine-Welt-Hauses.<br>15 Uhr: GUTE GEFÜHLE – Ein Clowns-Theater-Stück.<br>17 Uhr: Vorstellung ZIRKEL e.V.<br>18 Uhr: Essen – Trinken – Feiern. Mit Musik von Jaz Sings und Tresmundo.</div>
+      <div class="show-description">Liebe Menschen, liebe ZIRKEL-Freundinnen und Freunde, wir laden herzlich ein: Am 5. Februar 2023 wollen wir ZUSAMMENKOMMEN und feiern im Saal des Eine-Welt-Hauses.<br><br>
+        <strong>Programm:</strong><br>
+        15 Uhr: GUTE GEFÜHLE – Ein Clowns-Theater-Stück über den Umgang mit Gefühlen. Anschließend Raum für Fragen und Gefühle-Spiele zum Mitmachen.<br>
+        17 Uhr: Vorstellung ZIRKEL e.V. – Wie wir wirken und agieren. Methoden, Inhalte und Visionen. Das neue Projekt ZUSAMMENKOMMEN.<br>
+        18 Uhr: Essen – Trinken – Feiern. Mit Musik von Jaz Sings und Tresmundo.<br><br>
+        Bis bald, Micaela Czisch, Beatrix Ehrensperger und das ZIRKEL-Team</div>
+      <div class="show-links">
+        <a class="show-link" href="https://www.einewelthaus.de" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/einewelthaus.muc/" target="_blank">Instagram</a>
+      </div>
     </div>
   </div>
 
@@ -593,13 +473,14 @@
     </div>
     <div class="show-info">
       <div class="show-year">2022</div>
-      <div class="show-title">Jaz Sings in Deisenhofen</div>
+      <div class="show-title">Jaz Sings im Feinkostladen Kraut und Rüben in Deisenhofen</div>
       <div class="show-meta">
         <div class="show-date">12. August 2022 · ab 19:00 Uhr</div>
-        <div class="show-location">Bar &amp; Kraut und Rüben · Bahnhofstraße 20, 82041 Oberhaching</div>
+        <div class="show-location">Bahnhofstraße 20, 82041 Oberhaching</div>
       </div>
+      <div class="show-description">Ein kleines, gemütliches Geschäft. Der Inhaber ist sehr freundlich und legt bei der Auswahl seiner Produkte Wert darauf, dass sie regional sind oder von kleinen, aber feinen Herstellern. Am Nachmittag, wenn die Sonne scheint, kann man vor dem Laden wunderbar in der Sonne sitzen und gemütlich seinen Kaffee schlürfen.</div>
       <div class="show-links">
-        <a class="show-link" href="https://goo.gl/maps/RXxjbm3XMtdBPTAt8" target="_blank">Google Maps</a>
+        <a class="show-link" href="https://www.facebook.com/profile.php?id=100054576065243" target="_blank">Facebook</a>
       </div>
     </div>
   </div>
@@ -617,8 +498,8 @@
       </div>
       <div class="show-description">Ich freue mich über die Einladung, die Vernissage von Mäzionäre musikalisch zu begleiten. Kommt vorbei und feiert mit uns den Frühlingsanfang! Eine Kooperation der Künstlerin Christine Steiner und der Boutique Viva Maria von Laura Bonazzi. Hope to see you there – Love, Jaz 🌿</div>
       <div class="show-links">
-        <a class="show-link" href="https://goo.gl/maps/JjgaNCjWLZmEViMt5" target="_blank">Google Maps</a>
-        <a class="show-link" href="https://www.instagram.com/maezionaere/" target="_blank">Christine Steiner</a>
+        <a class="show-link" href="https://www.christinesteiner.de/" target="_blank">Website</a>
+        <a class="show-link" href="https://www.instagram.com/christine.steiner.art/" target="_blank">Instagram</a>
         <a class="show-link" href="https://connybonazzi.de" target="_blank">Viva Maria</a>
       </div>
     </div>
@@ -638,13 +519,12 @@
     </div>
   </div>
 
-</div><!-- /shows-container -->
+</div>
 
 <div class="divider"></div>
 
 <footer>
-  <p>&copy; 2025 Jaz Sings &nbsp;·&nbsp; <a href="kontakt.html">Kontakt</a> &nbsp;·&nbsp; <a href="mailto:info@jazsings.com">info@jazsings.com</a></p>
+  <p>&copy; 2026 Jaz Sings &nbsp;·&nbsp; <a href="kontakt.html">Kontakt</a> &nbsp;·&nbsp; <a href="mailto:info@jazsings.com">info@jazsings.com</a></p>
 </footer>
 
 </body>
-</html>
