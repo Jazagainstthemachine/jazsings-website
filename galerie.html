@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaz Sings – Galerie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Georgia, serif; color: #333; background: #f0f8ff; }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #333; background: #f0f8ff; }
 
         nav {
             background: #1a1a2e;
@@ -38,16 +39,17 @@
             background: #1a1a2e;
             color: white;
         }
-        .page-header h1 { font-size: 2.5rem; color: #a8d8ea; margin-bottom: 10px; }
-        .page-header p { font-size: 1.1rem; color: #ccc; }
+        .page-header h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 8px; text-transform: uppercase; color: #a8d8ea; margin-bottom: 10px; }
+        .page-header p { font-size: 0.85rem; color: #aaa; letter-spacing: 3px; text-transform: uppercase; }
 
         .videos-section {
             padding: 50px 20px;
-            max-width: 1300px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
+            padding: 50px 3cm;
         }
-        .videos-section h2 { text-align: center; font-size: 1.8rem; color: #1a1a2e; margin-bottom: 10px; }
-        .videos-section h3 { font-size: 1.1rem; color: #555; margin-bottom: 15px; margin-top: 30px; }
+        .videos-section h2 { text-align: center; font-size: clamp(1.6rem, 3vw, 2rem); font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 4px; color: #1a1a2e; margin-bottom: 10px; text-transform: uppercase; }
+        .videos-section h3 { font-size: 1rem; font-family: 'Montserrat', sans-serif; font-weight: 400; letter-spacing: 2px; color: #555; margin-bottom: 15px; margin-top: 30px; }
         .video-scroll-wrapper { position: relative; }
         .video-scroll {
             display: flex;
@@ -86,7 +88,7 @@
         .anfragen-btn:hover { background: #a8d8ea; color: #1a1a2e; }
 
         .fotos-header { text-align: center; padding: 50px 20px 20px; }
-        .fotos-header h2 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 10px; }
+        .fotos-header h2 { font-size: clamp(1.6rem, 3vw, 2rem); font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: #1a1a2e; margin-bottom: 10px; }
 
         .photo-grid {
             display: grid;

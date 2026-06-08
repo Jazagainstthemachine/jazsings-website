@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop – Jaz Sings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #1a1a2e; color: #f0eee8; font-family: Georgia, serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -22,16 +23,16 @@
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 50px; border-radius: 50%; object-fit: cover; }
     .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; }
-    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
-    .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
-    .nav-links a:hover, .nav-links a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
-    .nav-social { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .nav-social a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
-    .nav-social a:hover { background: #a8d8ea; color: #1a1a2e; }
+    .nav-menu { display: flex; gap: 20px; align-items: center; }
+    .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+    .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+    .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
+    .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
     .divider { height: 25px; background: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8); }
     main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
     .icon { font-size: 3.5rem; margin-bottom: 24px; opacity: 0.6; }
-    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; letter-spacing: 6px; color: #a8d8ea; margin-bottom: 20px; }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 6px; color: #a8d8ea; margin-bottom: 20px; }
     p { font-size: 0.9rem; letter-spacing: 2px; color: #aaa; line-height: 2; }
     .back-link { margin-top: 40px; display: inline-block; padding: 10px 28px; border: 1px solid rgba(168,216,234,0.35); border-radius: 2px; color: #a8d8ea; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.3s; }
     .back-link:hover { background: rgba(168,216,234,0.1); }
@@ -44,14 +45,14 @@
     <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
     <span>JAZ SINGS</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="galerie.html">Galerie</a></li>
-    <li><a href="shows.html">Shows</a></li>
-    <li><a href="shop.html" class="active">Shop</a></li>
-    <li><a href="kontakt.html">Kontakt</a></li>
-  </ul>
-  <div class="nav-social">
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="shows.html">Shows</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <div class="nav-icons">
     <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
     <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
