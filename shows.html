@@ -35,14 +35,14 @@
       z-index: 100;
     }
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-logo img { height: 50px; border-radius: 50%; object-fit: cover; }
+    .nav-logo img { height: 50px; border-radius: 0%; object-fit: cover; }
     .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; font-family: 'Montserrat', sans-serif; }
-    .nav-menu { display: flex; gap: 20px; list-style: none; align-items: center; }
-    .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
-    .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
-    .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
-    .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
+    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+    .nav-links a:hover, .nav-links a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+    .nav-social { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .nav-social a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
+    .nav-social a:hover { background: #a8d8ea; color: #1a1a2e; }
 
     .divider { height: 25px; background: var(--trennlinie); }
 
@@ -115,7 +115,7 @@
     .show-meta { display: flex; flex-direction: column; gap: 5px; padding-top: 4px; border-top: 1px solid rgba(168,216,234,0.15); }
     .show-date { font-size: 0.88rem; color: #e0d8f0; letter-spacing: 1px; }
     .show-location { font-size: 0.8rem; color: #aaa; letter-spacing: 1px; }
-    .show-description { font-size: 1rem; line-height: 1.85; color: #ccc; }
+    .show-description { font-size: 0.82rem; line-height: 1.85; color: #ccc; }
     .show-links { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 6px; justify-content: center; }
     .show-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1px solid rgba(168,216,234,0.4); border-radius: 2px; color: var(--hellblau); font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: background 0.3s, border-color 0.3s; }
     .show-link:hover { background: rgba(168,216,234,0.12); border-color: var(--hellblau); }
@@ -130,7 +130,7 @@
 
     @media (max-width: 680px) {
       nav { padding: 14px 20px; }
-      .nav-menu { display: none; }
+      .nav-links { display: none; }
       .show-card { grid-template-columns: 1fr; }
       .show-info { padding: 24px 20px; min-height: unset; }
     }
@@ -143,14 +143,14 @@
     <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
     <span>JAZ SINGS</span>
   </a>
-  <div class="nav-menu">
-    <a href="index.html">Home</a>
-    <a href="galerie.html">Galerie</a>
-    <a href="shows.html" class="active">Shows</a>
-    <a href="shop.html">Shop</a>
-    <a href="kontakt.html">Kontakt</a>
-  </div>
-  <div class="nav-icons">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="galerie.html">Galerie</a></li>
+    <li><a href="shows.html" class="active">Shows</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="nav-social">
     <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
     <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
@@ -193,7 +193,7 @@
 
   <div class="show-card">
     <div class="show-image-wrap">
-      <img src="images/Shows/shows-2025-12-15-weihnachtsmarkt.jpg" alt="Sendlinger Bergweihnacht 2025" />
+      <img src="images/Shows/shows-2025-12-15-23-weihnachtsmarkt.jpg" alt="Sendlinger Bergweihnacht 2025" />
     </div>
     <div class="show-info">
       <div class="show-year">2025</div>
