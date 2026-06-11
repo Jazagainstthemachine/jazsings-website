@@ -33,12 +33,12 @@
 
         .divider { height: 25px; background: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8); }
 
-        .hero { position: relative; height: 500px; display: flex; }
-        .hero-left { width: 50%; background-image: url('images/Hauptseite/hauptseite-bild1.jpg'); background-size: cover; background-position: center; }
+        .hero { position: relative; height: 600px; display: flex; }
+        .hero-left { width: 50%; background-image: url('images/Hauptseite/hauptseite-bild1.jpg'); background-size: 85%; background-repeat: no-repeat; background-position: center 15%; background-color: #0d0d1a; }
         .hero-right { width: 50%; background-image: url('images/Hauptseite/hauptseite-bild2.jpg'); background-size: cover; background-position: center; }
-        .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); width: 80%; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 4px; }
-        .hero-text p { font-size: 2rem; font-family: 'Montserrat', sans-serif; }
+        .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; width: 80%; }
+        .hero-text h1 { font-size: 4rem; margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 4px; text-shadow: 2px 2px 12px rgba(0,0,0,0.9); }
+        .hero-text p { font-size: 2rem; font-family: 'Montserrat', sans-serif; text-shadow: 2px 2px 12px rgba(0,0,0,0.9); }
 
         .btn-anfragen { display: block; width: fit-content; margin: 40px auto; background: #7b68ee; color: white; padding: 18px 50px; font-size: 1.3rem; border-radius: 50px; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: all 0.3s; text-align: center; font-family: 'Montserrat', sans-serif; }
         .btn-anfragen:hover { background: #5a4fcf; transform: scale(1.05); }
@@ -223,8 +223,10 @@
         <div class="hero-left"></div>
         <div class="hero-right"></div>
         <div class="hero-text">
-            <h1>Der Sound von Jaz</h1>
-            <p>für Träumerinnen & Genießer</p>
+            <div style="background: rgba(0,0,0,0.45); backdrop-filter: blur(2px); padding: 24px 40px; border-radius: 4px; display: inline-block;">
+                <h1>Der Sound von Jaz</h1>
+                <p>für Träumerinnen & Genießer</p>
+            </div>
         </div>
     </div>
 
