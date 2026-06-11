@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaz Sings – Live-Musik für unvergessliche Events</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #333; }
+        body { font-family: Georgia, serif; color: #333; }
 
         nav {
             background: #1a1a2e;
@@ -37,98 +36,20 @@
         .hero-left { width: 50%; background-image: url('images/Hauptseite/hauptseite-bild1.jpg'); background-size: cover; background-position: center; }
         .hero-right { width: 50%; background-image: url('images/Hauptseite/hauptseite-bild2.jpg'); background-size: cover; background-position: center; }
         .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; text-shadow: 2px 2px 8px rgba(0,0,0,0.8); width: 80%; }
-        .hero-text h1 { font-size: 4rem; margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 4px; }
-        .hero-text p { font-size: 2rem; font-family: 'Montserrat', sans-serif; }
+        .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-text p { font-size: 1.2rem; }
 
-        .btn-anfragen { display: block; width: fit-content; margin: 40px auto; background: #7b68ee; color: white; padding: 18px 50px; font-size: 1.3rem; border-radius: 50px; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: all 0.3s; text-align: center; font-family: 'Montserrat', sans-serif; }
+        .btn-anfragen { display: block; width: fit-content; margin: 40px auto; background: #7b68ee; color: white; padding: 18px 50px; font-size: 1.3rem; border-radius: 50px; text-decoration: none; font-weight: bold; letter-spacing: 1px; transition: all 0.3s; text-align: center; }
         .btn-anfragen:hover { background: #5a4fcf; transform: scale(1.05); }
 
         .shorts-section { background: #f0f8ff; padding: 60px 20px; text-align: center; }
-        .shorts-section h2 { font-size: 2rem; color: #1a1a2e; margin-bottom: 30px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 3px; }
+        .shorts-section h2 { font-size: 2rem; color: #1a1a2e; margin-bottom: 30px; }
         .shorts-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .shorts-grid iframe { border-radius: 12px; border: none; }
 
         .reviews-section { padding: 60px 20px; text-align: center; background: #e8f4f8; }
-        .reviews-section h2 { font-size: 2rem; color: #1a1a2e; margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 3px; }
+        .reviews-section h2 { font-size: 2rem; color: #1a1a2e; margin-bottom: 20px; }
         .reviews-section a { display: inline-block; background: #4285f4; color: white; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; margin-top: 10px; }
-
-        /* REFERENZEN */
-        .referenzen-section {
-            background: #1a1a2e;
-            padding: 80px 40px;
-        }
-        .referenzen-section h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 300;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: #a8d8ea;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-        .referenzen-section .ref-sub {
-            text-align: center;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            color: #aaa;
-            text-transform: uppercase;
-            margin-bottom: 60px;
-        }
-
-        .ref-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .ref-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1 / 1;
-            background: #0d0d1a;
-        }
-
-        .ref-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s, filter 0.5s;
-            filter: saturate(0.8) brightness(0.85);
-        }
-        .ref-item:hover img {
-            transform: scale(1.04);
-            filter: saturate(1) brightness(1);
-        }
-
-        /* VIDEO KACHEL */
-        .ref-item.video-tile {
-            position: relative;
-        }
-        .ref-item.video-tile iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        /* LABEL */
-        .ref-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(0deg, rgba(10,10,25,0.85) 0%, transparent 100%);
-            padding: 20px 16px 14px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: #a8d8ea;
-            text-transform: uppercase;
-            pointer-events: none;
-        }
 
         /* SOFACONCERTS */
         .sofaconcerts-section {
@@ -136,20 +57,47 @@
             padding: 60px 20px;
             text-align: center;
             color: white;
-            border-top: 1px solid rgba(168,216,234,0.1);
         }
-        .sofaconcerts-logo { height: 80px; object-fit: contain; margin-bottom: 24px; }
-        .sofaconcerts-section h2 { font-size: 2rem; margin-bottom: 15px; color: #a8d8ea; font-family: 'Cormorant Garamond', serif; font-weight: 300; letter-spacing: 3px; }
-        .sofaconcerts-section p { margin-bottom: 25px; font-size: 1.1rem; color: #ccc; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .btn-sofa { background: #a8d8ea; color: #1a1a2e; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-size: 1.1rem; font-weight: bold; display: inline-block; transition: all 0.3s; margin-bottom: 40px; }
+        .sofaconcerts-logo {
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+        .sofaconcerts-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #a8d8ea;
+        }
+        .sofaconcerts-section p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-sofa {
+            background: #a8d8ea;
+            color: #1a1a2e;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-block;
+            transition: all 0.3s;
+            margin-bottom: 40px;
+        }
         .btn-sofa:hover { background: #7b9ea8; transform: scale(1.05); }
-        .sofaconcerts-screenshot { max-width: 700px; width: 100%; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+        .sofaconcerts-screenshot {
+            max-width: 700px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
 
         footer { background: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; }
         footer a { color: #a8d8ea; }
-
-        @media (max-width: 900px) { .ref-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .ref-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -201,7 +149,7 @@
                 </div>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
-                <h3 style="font-size: 1.3rem; color: #1a1a2e; font-family: 'Cormorant Garamond', serif;">Jaz auf Instagram</h3>
+                <h3 style="font-size: 1.3rem; color: #1a1a2e; font-family: Georgia, serif;">Jaz auf Instagram</h3>
                 <div class="elfsight-app-82c1ffe6-6157-492c-925b-4ca776643a9c" data-elfsight-app-lazy></div>
                 <a href="https://www.instagram.com/jaz__sings/" target="_blank" style="background:#7b68ee; color:white; padding:10px 24px; border-radius:50px; text-decoration:none; font-size:0.9rem; font-weight:bold;">@jaz__sings folgen</a>
             </div>
@@ -217,125 +165,6 @@
         <script src="https://elfsightcdn.com/platform.js" async></script>
         <div class="elfsight-app-2664f396-4330-418a-aa8f-7485e0725b82" data-elfsight-app-lazy></div>
         <a href="https://g.page/r/Ca7lYu9RUwNiEAE/review" target="_blank" style="margin-top:20px;">⭐ Selbst eine Bewertung hinterlassen</a>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- REFERENZEN GRID -->
-    <div class="referenzen-section">
-        <h2>Referenzen</h2>
-        <p class="ref-sub">Live-Musik · Hochzeiten · Events · Straßenmusik · München</p>
-
-        <div class="ref-grid">
-
-            <!-- Reihe 1: Foto + Video Hochzeit Thui / Starnbergersee -->
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-thau-bau-hotel-opera-muenchen-maximilianstraße.jpg"
-                     alt="Live-Musik Hochzeit München Maximilianstraße Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit · München</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-julia-christan-starnbergersee-1.jpg"
-                     alt="Live-Musik Hochzeit Starnbergersee Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit · Starnbergersee</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-julia-christan-starnbergersee-2.jpg"
-                     alt="Sängerin Gitarre Hochzeit Starnbergersee Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit · Starnbergersee</div>
-            </div>
-
-            <!-- Reihe 2: Hochzeit Bad Tölz Foto + Instagram Vlog -->
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2024-Livemusik-Hochzeit-BadToelz.jpg"
-                     alt="Live-Musik Hochzeit Bad Tölz Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit · Bad Tölz</div>
-            </div>
-            <div class="ref-item video-tile">
-                <iframe src="https://www.youtube.com/embed/2UTRTzIsXb0"
-                        allow="autoplay; encrypted-media" allowfullscreen
-                        title="Jaz Sings Live Hochzeit Vlog München"></iframe>
-                <div class="ref-label">Hochzeit Vlog · YouTube</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Livemusik-Hochzeit-Moritz-Katharina-Muenchen-Stellwerk-Locations-Rooftop-Dachterasse-1.jpg"
-                     alt="Live-Musik Hochzeit Rooftop München Stellwerk Locations Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit Rooftop · München</div>
-            </div>
-
-            <!-- Reihe 3: Rooftop 2 + Corso Leopold + Firmenfeier -->
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Livemusik-Hochzeit-Moritz-Katharina-Muenchen-Stellwerk-Locations-Rooftop-Dachterasse-2.jpg"
-                     alt="Sängerin Gitarre Rooftop Hochzeit München Jaz Sings" loading="lazy" />
-                <div class="ref-label">Hochzeit Rooftop · München</div>
-            </div>
-            <div class="ref-item video-tile">
-                <iframe src="https://www.instagram.com/p/DCm-DuGI0kH/embed"
-                        allow="autoplay; encrypted-media" allowfullscreen
-                        title="Jaz Sings Corso Leopold Straßenfestival München"></iframe>
-                <div class="ref-label">Corso Leopold · München</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Livemusik-Autohaus-Moser-Familientag-Firmenfeier-Aktionstag-Germering-Muenchen.jpg"
-                     alt="Live-Musik Firmenfeier Autohaus Moser Germering München Jaz Sings" loading="lazy" />
-                <div class="ref-label">Firmenfeier · Germering</div>
-            </div>
-
-            <!-- Reihe 4: Sofaconcerts + Isarinselfest + Brief -->
-            <div class="ref-item video-tile">
-                <iframe src="https://www.youtube.com/embed/zscU-MwNe-o"
-                        allow="autoplay; encrypted-media" allowfullscreen
-                        title="Jaz Sings Sofaconcerts Geburtstag Live"></iframe>
-                <div class="ref-label">Sofaconcerts · Privatkonzert</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Isarinselfest-Programmheft-Jaz-Sings-Beschreibung-Livemusik.jpg"
-                     alt="Jaz Sings Isarinselfest München Programmheft Livemusik" loading="lazy" />
-                <div class="ref-label">Isarinselfest · München</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2023-brief-charlie-livemusik-straßenmusk-muenchen-liebesbrief-busking.jpg"
-                     alt="Liebesbrief Busking Live-Musik München Straßenmusik Jaz Sings" loading="lazy" />
-                <div class="ref-label">Straßenmusik · München</div>
-            </div>
-
-            <!-- Reihe 5: Weihnachtsmarkt Video + Weihnachtsfeier + Kunstoase -->
-            <div class="ref-item video-tile">
-                <iframe src="https://www.youtube.com/embed/6FmHvlhSCn0"
-                        allow="autoplay; encrypted-media" allowfullscreen
-                        title="Jaz Sings Sendlinger Bergweihnacht München"></iframe>
-                <div class="ref-label">Sendlinger Bergweihnacht</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Livemusik-Weihnachtsfeier-Palmenhaus-Nymphenburger-Schlossgarten-LungenarztpraxisamRundfunkplatz-Muenchen.jpg"
-                     alt="Live-Musik Weihnachtsfeier Palmenhaus Nymphenburger Schlossgarten München Jaz Sings" loading="lazy" />
-                <div class="ref-label">Weihnachtsfeier · Palmenhaus</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/Referenz-2024-Livemusik-Vernissage-Kunstoase-Muenchen.jpg"
-                     alt="Live-Musik Vernissage Kunstoase München Jaz Sings" loading="lazy" />
-                <div class="ref-label">Vernissage · Kunstoase München</div>
-            </div>
-
-            <!-- Reihe 6: Busking Augsburg + Feinkost Deisenhofen -->
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2024-livemusik-straßenmusik-liebesbrief-busking-augsburg.jpg"
-                     alt="Straßenmusik Busking Augsburg Live-Musik Jaz Sings" loading="lazy" />
-                <div class="ref-label">Straßenmusik · Augsburg</div>
-            </div>
-            <div class="ref-item">
-                <img src="images/Referenzen/referenz-2022-livemusik-beategeert-deisenhofen-krautrueben-feinkostbar.jpg"
-                     alt="Live-Musik Feinkostbar Kraut und Rüben Deisenhofen Jaz Sings" loading="lazy" />
-                <div class="ref-label">Feinkostbar · Deisenhofen</div>
-            </div>
-            <div class="ref-item video-tile">
-                <iframe src="https://www.instagram.com/p/C-dCBd_N1Iu/embed"
-                        allow="autoplay; encrypted-media" allowfullscreen
-                        title="Jaz Sings Hochzeit Bad Tölz Instagram Vlog"></iframe>
-                <div class="ref-label">Hochzeit Vlog · Instagram</div>
-            </div>
-
-        </div>
     </div>
 
     <div class="divider"></div>
