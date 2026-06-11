@@ -78,8 +78,8 @@
 
         .ref-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4px;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -92,6 +92,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
 
         .ref-item img {
@@ -110,6 +111,7 @@
         /* VIDEO KACHEL */
         .ref-item.video-tile {
             position: relative;
+            cursor: default;
         }
         .ref-item.video-tile iframe {
             width: 100%;
@@ -133,6 +135,38 @@
             pointer-events: none;
         }
 
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.8);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .lightbox-close:hover { opacity: 1; }
+
         /* SOFACONCERTS */
         .sofaconcerts-section {
             background: #1a1a2e;
@@ -151,11 +185,16 @@
         footer { background: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; }
         footer a { color: #a8d8ea; }
 
-        @media (max-width: 900px) { .ref-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .ref-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) { .ref-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <img id="lightbox-img" src="" alt="" />
+    </div>
 
     <nav>
         <div class="nav-logo">
@@ -232,24 +271,24 @@
         <div class="ref-grid">
 
             <!-- Reihe 1: Foto + Video Hochzeit Thui / Starnbergersee -->
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-thui-bau-hotel-opera-muenchen-maximilianstraße.jpg"
                      alt="Live-Musik Hochzeit München Maximilianstraße Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit · München</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-julia-christan-starnbergersee-1.jpg"
                      alt="Live-Musik Hochzeit Starnbergersee Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit · Starnbergersee</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2022-livemusik-hochzeit-julia-christan-starnbergersee-2.jpg"
                      alt="Sängerin Gitarre Hochzeit Starnbergersee Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit · Starnbergersee</div>
             </div>
 
             <!-- Reihe 2: Hochzeit Bad Tölz Foto + Instagram Vlog -->
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2024-Livemusik-Hochzeit-BadToelz.jpg"
                      alt="Live-Musik Hochzeit Bad Tölz Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit · Bad Tölz</div>
@@ -260,14 +299,14 @@
                         title="Jaz Sings Live Hochzeit Vlog München"></iframe>
                 <div class="ref-label">Hochzeit Vlog · YouTube</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Livemusik-Hochzeit-Moritz-Katharina-Muenchen-Stellwerk-Locations-Rooftop-Dachterasse-1.jpg"
                      alt="Live-Musik Hochzeit Rooftop München Stellwerk Locations Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit Rooftop · München</div>
             </div>
 
             <!-- Reihe 3: Rooftop 2 + Corso Leopold + Firmenfeier -->
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Livemusik-Hochzeit-Moritz-Katharina-Muenchen-Stellwerk-Locations-Rooftop-Dachterasse-2.jpg"
                      alt="Sängerin Gitarre Rooftop Hochzeit München Jaz Sings" loading="lazy" />
                 <div class="ref-label">Hochzeit Rooftop · München</div>
@@ -278,7 +317,7 @@
                         title="Jaz Sings Corso Leopold Straßenfestival München"></iframe>
                 <div class="ref-label">Corso Leopold · München</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Livemusik-Autohaus-Moser-Familientag-Firmenfeier-Aktionstag-Germering-Muenchen.jpg"
                      alt="Live-Musik Firmenfeier Autohaus Moser Germering München Jaz Sings" loading="lazy" />
                 <div class="ref-label">Firmenfeier · Germering</div>
@@ -291,12 +330,12 @@
                         title="Jaz Sings Sofaconcerts Geburtstag Live"></iframe>
                 <div class="ref-label">Sofaconcerts · Privatkonzert</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Isarinselfest-Programmheft-Jaz-Sings-Beschreibung-Livemusik.jpg"
                      alt="Jaz Sings Isarinselfest München Programmheft Livemusik" loading="lazy" />
                 <div class="ref-label">Isarinselfest · München</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2023-brief-charlie-livemusik-straßenmusk-muenchen-liebesbrief-busking.jpg"
                      alt="Liebesbrief Busking Live-Musik München Straßenmusik Jaz Sings" loading="lazy" />
                 <div class="ref-label">Straßenmusik · München</div>
@@ -309,24 +348,24 @@
                         title="Jaz Sings Sendlinger Bergweihnacht München"></iframe>
                 <div class="ref-label">Sendlinger Bergweihnacht</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Livemusik-Weihnachtsfeier-Palmenhaus-Nymphenburger-Schlossgarten-LungenarztpraxisamRundfunkplatz-Muenchen.jpg"
                      alt="Live-Musik Weihnachtsfeier Palmenhaus Nymphenburger Schlossgarten München Jaz Sings" loading="lazy" />
                 <div class="ref-label">Weihnachtsfeier · Palmenhaus</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/Referenz-2024-Livemusik-Vernissage-Kunstoase-Muenchen.jpg"
                      alt="Live-Musik Vernissage Kunstoase München Jaz Sings" loading="lazy" />
                 <div class="ref-label">Vernissage · Kunstoase München</div>
             </div>
 
             <!-- Reihe 6: Busking Augsburg + Feinkost Deisenhofen -->
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2024-livemusik-straßenmusik-liebesbrief-busking-augsburg.jpg"
                      alt="Straßenmusik Busking Augsburg Live-Musik Jaz Sings" loading="lazy" />
                 <div class="ref-label">Straßenmusik · Augsburg</div>
             </div>
-            <div class="ref-item">
+            <div class="ref-item" onclick="openLightbox(this.querySelector('img').src, this.querySelector('img').alt)">
                 <img src="images/Referenzen/referenz-2022-livemusik-beategeert-deisenhofen-krautrueben-feinkostbar.jpg"
                      alt="Live-Musik Feinkostbar Kraut und Rüben Deisenhofen Jaz Sings" loading="lazy" />
                 <div class="ref-label">Feinkostbar · Deisenhofen</div>
@@ -359,5 +398,20 @@
         <p>© 2026 Jaz Sings · <a href="mailto:Info@jazsings.com">Info@jazsings.com</a></p>
     </footer>
 
+    <script>
+        function openLightbox(src, alt) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-img').alt = alt;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
 </body>
 </html>
