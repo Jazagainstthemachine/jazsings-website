@@ -89,28 +89,32 @@
         .fotos-header h2 { font-size: 1.8rem; color: #1a1a2e; margin-bottom: 10px; }
 
         .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            columns: 3;
+            column-gap: 12px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        @media (max-width: 900px) { .photo-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) { .photo-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .photo-grid { columns: 2; } }
+        @media (max-width: 600px) { .photo-grid { columns: 1; } }
 
-        .photo-grid img {
+        .photo-group {
+            break-inside: avoid;
+            margin-bottom: 12px;
+        }
+        .photo-group img {
             width: 100%;
             height: auto;
-            object-fit: cover;
-            border-radius: 10px;
             display: block;
+            border-radius: 8px;
+            margin-bottom: 6px;
             transition: transform 0.3s, opacity 0.3s;
             cursor: pointer;
             opacity: 0;
         }
-        .photo-grid img.loaded { opacity: 1; }
-        .photo-grid img:hover { transform: scale(1.02); }
+        .photo-group img:last-child { margin-bottom: 0; }
+        .photo-group img.loaded { opacity: 1; }
+        .photo-group img:hover { transform: scale(1.02); }
 
         .lightbox {
             display: none;
@@ -210,130 +214,211 @@
 
     <div class="photo-grid">
         <!-- 2025 -->
-        <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-1.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-2.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-3.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-4.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-5.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-6.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-köln-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-maroni-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-3.jpg" onclick="openLightbox(this.src)">
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-1.jpg" alt="Jaz Sings Dianatempel München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/Galerie-2025-Dianatempel-Hermann-Dobler-2.jpg" alt="Jaz Sings Dianatempel München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-2.jpg" alt="Jaz Sings Heiliggeist München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-heiliggeist-3.jpg" alt="Jaz Sings Heiliggeist München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-1.jpg" alt="Jaz Sings Hochzeit Hamburg 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-2.jpg" alt="Jaz Sings Hochzeit Hamburg 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-3.jpg" alt="Jaz Sings Hochzeit Hamburg 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-Hochzeit-NinaMax-hamburg-4.jpg" alt="Jaz Sings Hochzeit Hamburg 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-1.JPG" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-2.JPG" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-3.JPG" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-4.JPG" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-5.JPG" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-jattlebam-6.jpg" alt="Jaz Sings Jattlebam München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-köln-1.jpg" alt="Jaz Sings Köln 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-maroni-1.jpg" alt="Jaz Sings Maroni München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-maroni-2.jpg" alt="Jaz Sings Maroni München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-maroni-3.jpg" alt="Jaz Sings Maroni München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-1.jpg" alt="Jaz Sings Hochzeit Nymphenburg 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-2.jpg" alt="Jaz Sings Hochzeit Nymphenburg 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-nymphenburgerhochzeit-3.jpg" alt="Jaz Sings Hochzeit Nymphenburg 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-1.jpg" alt="Jaz Sings Olympiaberg München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-2.jpg" alt="Jaz Sings Olympiaberg München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiaberg-3.jpg" alt="Jaz Sings Olympiaberg München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-1.jpg" alt="Jaz Sings Olympiapark See München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-2.jpg" alt="Jaz Sings Olympiapark See München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-olympiapark-see-3.jpg" alt="Jaz Sings Olympiapark See München 2025" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-1.jpg" alt="Jaz Sings Weihnachtsmarkt München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-2.jpg" alt="Jaz Sings Weihnachtsmarkt München 2025" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2025-weihnachtsmarkt-3.jpg" alt="Jaz Sings Weihnachtsmarkt München 2025" onclick="openLightbox(this.src)">
+        </div>
         <!-- 2024 -->
-        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-5.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-5.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-bregenz-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-moarwirt-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-2.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-6.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-johannes-olympiapark.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="galerie-2024-olympiapark-br%C3%BCcke-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-sofaconcertsheinzpeter-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-4.jpg" onclick="openLightbox(this.src)">
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-1.jpg" alt="Jaz Sings Straßenmusik Augsburg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-2.jpg" alt="Jaz Sings Straßenmusik Augsburg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-3.jpg" alt="Jaz Sings Straßenmusik Augsburg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-augsburg-4.jpg" alt="Jaz Sings Straßenmusik Augsburg 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-5.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-1.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-2.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-3.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-4.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-johannesehrl-5.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-1.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-2.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-3.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bardentreffen-sonntag-4.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-bregenz-1.jpg" alt="Jaz Sings Bregenz 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-1.jpg" alt="Jaz Sings Dianatempel München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-2.jpg" alt="Jaz Sings Dianatempel München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-dianatempel-3.jpg" alt="Jaz Sings Dianatempel München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-1.jpg" alt="Jaz Sings Fußgängerzone München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-2.jpg" alt="Jaz Sings Fußgängerzone München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-fußgängerzone-münchen-3.jpg" alt="Jaz Sings Fußgängerzone München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-moarwirt-1.jpg" alt="Jaz Sings Hochzeit Moarwirt 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-3.jpg" alt="Jaz Sings Hochzeit Thui 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-hochzeit-thui-4.jpg" alt="Jaz Sings Hochzeit Thui 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-1.jpg" alt="Jaz Sings Hochzeit Rooftop München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-hochzeitrooftop-2.jpg" alt="Jaz Sings Hochzeit Rooftop München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-1.jpg" alt="Jaz Sings Isarinselfest München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-2.JPG" alt="Jaz Sings Isarinselfest München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-3.jpg" alt="Jaz Sings Isarinselfest München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-4.jpg" alt="Jaz Sings Isarinselfest München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-isarinselfest-6.jpg" alt="Jaz Sings Isarinselfest München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-johannes-olympiapark.jpg" alt="Jaz Sings Olympiapark München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-1.jpg" alt="Jaz Sings Odeonsplatz München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-2.jpg" alt="Jaz Sings Odeonsplatz München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-odeonsplatz-3.jpg" alt="Jaz Sings Odeonsplatz München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-1.jpg" alt="Jaz Sings Olympiapark München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-2.jpg" alt="Jaz Sings Olympiapark München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-martina-3.jpg" alt="Jaz Sings Olympiapark München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-1.jpg" alt="Jaz Sings Olympiapark Turm München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-olympiapark-turm-2.jpg" alt="Jaz Sings Olympiapark Turm München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-sofaconcertsheinzpeter-1.jpg" alt="Jaz Sings Sofaconcerts München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-1.jpg" alt="Jaz Sings Weihnachtsfeier München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-2.jpg" alt="Jaz Sings Weihnachtsfeier München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-3.jpg" alt="Jaz Sings Weihnachtsfeier München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsfeierLungenärzte-4.jpg" alt="Jaz Sings Weihnachtsfeier München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-1.jpg" alt="Jaz Sings Weihnachtsmarkt München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-2.jpg" alt="Jaz Sings Weihnachtsmarkt München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-3.jpg" alt="Jaz Sings Weihnachtsmarkt München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-weihnachtsmarkt-4.jpg" alt="Jaz Sings Weihnachtsmarkt München 2024" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-1.jpg" alt="Jaz Sings Zirkel Büro München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-2.jpg" alt="Jaz Sings Zirkel Büro München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-3.jpg" alt="Jaz Sings Zirkel Büro München 2024" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2024-zirkelbüro-4.jpg" alt="Jaz Sings Zirkel Büro München 2024" onclick="openLightbox(this.src)">
+        </div>
         <!-- 2023 -->
-        <img loading="lazy" src="images/Galerie/galerie-2023-Daslihotzky-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-dianatempel.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-1.png" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-3.png" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-4.png" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-1.JPG" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-2.jpg" onclick="openLightbox(this.src)">
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-Daslihotzky-1.jpg" alt="Jaz Sings Daslihotzky 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-1.jpg" alt="Jaz Sings Bardentreffen Deutsches Museum Nürnberg 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-2.jpg" alt="Jaz Sings Bardentreffen Deutsches Museum Nürnberg 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-deutschesmuseum-3.jpg" alt="Jaz Sings Bardentreffen Deutsches Museum Nürnberg 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-1.jpg" alt="Jaz Sings Bardentreffen Weinmarkt Nürnberg 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-2.jpg" alt="Jaz Sings Bardentreffen Weinmarkt Nürnberg 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-3.jpg" alt="Jaz Sings Bardentreffen Weinmarkt Nürnberg 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-bardentreffen-weinmarkt-jürgen-oppel-pictureshooter-4.jpg" alt="Jaz Sings Bardentreffen Weinmarkt Nürnberg 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-dianatempel.jpg" alt="Jaz Sings Dianatempel München 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-1.jpg" alt="Jaz Sings Kunstoase München 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-kunstoase-2.jpg" alt="Jaz Sings Kunstoase München 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-1.png" alt="Jaz Sings Moon River Musikvideo 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-3.png" alt="Jaz Sings Moon River Musikvideo 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-moonriver-4.png" alt="Jaz Sings Moon River Musikvideo 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-1.JPG" alt="Jaz Sings Olympiapark München 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-olympiapark-people-2.jpg" alt="Jaz Sings Olympiapark München 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-1.jpg" alt="Jaz Sings Rindermarkt München 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-2.jpg" alt="Jaz Sings Rindermarkt München 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-rindermarkt-3.jpg" alt="Jaz Sings Rindermarkt München 2023" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-1.jpg" alt="Jaz Sings Stadtteilkultur München 2023" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2023-stadtteilkultur24-2.jpg" alt="Jaz Sings Stadtteilkultur München 2023" onclick="openLightbox(this.src)">
+        </div>
         <!-- 2022 -->
-        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-4.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-1.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-2.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-3.jpg" onclick="openLightbox(this.src)">
-        <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-4.jpg" onclick="openLightbox(this.src)">
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-1.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-2.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-3.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-bardentreffen-4.jpg" alt="Jaz Sings Bardentreffen Nürnberg 2022" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-1.jpg" alt="Jaz Sings Hochzeit Starnbergersee 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-2.jpg" alt="Jaz Sings Hochzeit Starnbergersee 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-3.jpg" alt="Jaz Sings Hochzeit Starnbergersee 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-starnbergersee-4.jpg" alt="Jaz Sings Hochzeit Starnbergersee 2022" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-1.jpg" alt="Jaz Sings Hochzeit Thui 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-hochzeit-thui-2.jpg" alt="Jaz Sings Hochzeit Thui 2022" onclick="openLightbox(this.src)">
+        </div>
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-1.jpg" alt="Jaz Sings Vernissage Vive Marie München 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-2.jpg" alt="Jaz Sings Vernissage Vive Marie München 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-3.jpg" alt="Jaz Sings Vernissage Vive Marie München 2022" onclick="openLightbox(this.src)">
+            <img loading="lazy" src="images/Galerie/galerie-2022-vernissage-vivemarie-4.jpg" alt="Jaz Sings Vernissage Vive Marie München 2022" onclick="openLightbox(this.src)">
+        </div>
         <!-- 2021 -->
-        <img loading="lazy" src="images/Galerie/galerie-2021-englischergarten.jpg" onclick="openLightbox(this.src)">
+        <div class="photo-group">
+            <img loading="lazy" src="images/Galerie/galerie-2021-englischergarten.jpg" alt="Jaz Sings Englischer Garten München 2021" onclick="openLightbox(this.src)">
+        </div>
     </div>
 
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -346,7 +431,7 @@
     </footer>
 
     <script>
-        const images = document.querySelectorAll('img[loading="lazy"]');
+        const images = document.querySelectorAll('.photo-group img');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
