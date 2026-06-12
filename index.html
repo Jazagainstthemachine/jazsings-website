@@ -186,6 +186,37 @@
         footer a { color: #a8d8ea; }
 
         @media (max-width: 700px) { .ref-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 768px) {
+            nav { padding: 10px 16px; }
+            .nav-icons { display: none; }
+            .nav-logo span { font-size: 1.2rem; }
+            .nav-logo img { height: 38px; }
+            .hero { height: 500px; flex-direction: column; }
+            .hero-left { width: 100%; height: 55%; background-size: cover; background-position: center top; }
+            .hero-right { width: 100%; height: 45%; }
+            .hero-text { width: 85%; }
+            .hero-text h1 { font-size: 1.6rem; letter-spacing: 2px; }
+            .hero-text p { font-size: 0.85rem; }
+            .hero-text > div { padding: 10px 16px !important; background: rgba(0,0,0,0.25) !important; }
+            .btn-anfragen { font-size: 1rem; padding: 14px 30px; margin: 24px auto; }
+            .shorts-section { padding: 40px 12px; }
+            .shorts-section h2 { font-size: 1.4rem; letter-spacing: 1px; }
+            .shorts-grid { gap: 8px; }
+            .shorts-grid iframe { width: 100px; height: 178px; }
+            .referenzen-section { padding: 40px 16px; }
+            .referenzen-section h2 { font-size: 1.8rem; letter-spacing: 3px; }
+            .ref-sub { margin-bottom: 30px; font-size: 0.7rem; }
+            .ref-grid { grid-template-columns: 1fr 1fr; }
+            [style*="min-width: 600px"] { min-width: unset !important; width: 100% !important; max-width: 100% !important; max-height: 600px; overflow-y: auto; }
+            [style*="min-width: 200px"] { display: none !important; }
+            [style*="flex: 3"] { flex: 1 !important; }
+            [style*="flex: 1"] { flex: 1 !important; }
+            .sofaconcerts-section { padding: 40px 16px; }
+            .sofaconcerts-section p { font-size: 0.9rem; }
+            .btn-sofa { padding: 12px 24px; font-size: 0.9rem; }
+            .sofaconcerts-screenshot { max-width: 100%; }
+        }
     </style>
 </head>
 <body>
