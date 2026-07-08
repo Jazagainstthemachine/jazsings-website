@@ -37,12 +37,12 @@
     .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
     .nav-logo img { height: 50px; border-radius: 50%; object-fit: cover; }
     .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; font-family: 'Montserrat', sans-serif; }
-    .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
-    .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
-    .nav-links a:hover, .nav-links a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
-    .nav-social { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-    .nav-social a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
-    .nav-social a:hover { background: #a8d8ea; color: #1a1a2e; }
+    .nav-menu { display: flex; gap: 20px; list-style: none; align-items: center; }
+    .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+    .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+    .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
+    .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
 
     .divider { height: 25px; background: var(--trennlinie); }
 
@@ -131,8 +131,8 @@
 
     @media (max-width: 768px) {
       nav { padding: 10px 16px; }
-      .nav-social { display: none; }
-      .nav-links { display: none; }
+      .nav-icons { display: none; }
+      .nav-menu { display: none; }
       .nav-logo span { font-size: 1.2rem; }
       .nav-logo img { height: 38px; }
       .page-header { padding: 30px 16px 20px; }
