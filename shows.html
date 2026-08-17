@@ -138,6 +138,9 @@
     .show-link:hover { background: rgba(168,216,234,0.12); border-color: var(--hellblau); }
 
     .show-card:nth-child(even) { direction: rtl; }
+    .show-card-reverse { direction: rtl; }
+    .show-card-reverse .show-info,
+    .show-card-reverse .show-image-wrap { direction: ltr; }
     .show-card:nth-child(even) .show-info,
     .show-card:nth-child(even) .show-image-wrap { direction: ltr; }
 
@@ -202,11 +205,8 @@
 
 <div class="shows-container">
 
-  <div class="show-card" style="direction: rtl;">
-    <div class="show-image-wrap">
-      <img src="images/Shows/shows-2026-08-15-greifenberg-dinerenblanc.jpg" alt="Dîner en blanc Greifenberg 2026" style="direction: ltr;" />
-    </div>
-    <div class="show-info" style="direction: ltr; background: linear-gradient(135deg, #1a2a1a 0%, #0d1a2e 100%);">
+  <div class="show-card show-card-reverse" style="background: #1a2e1a;">
+    <div class="show-info">
       <div class="show-year">2026</div>
       <div class="show-title">WHITE DINNER – Dîner en blanc</div>
       <div class="show-meta">
@@ -221,6 +221,9 @@
         <p style="margin-top:12px;">Bierbänke stellen wir für euch auf –<br>aber ob sie für alle reichen? Vielleicht! ♡</p>
         <p style="margin-top:12px;">Lasst uns gemeinsam einen unvergesslichen Sommerabend in Weiß genießen!</p>
       </div>
+    </div>
+    <div class="show-image-wrap">
+      <img src="images/Shows/shows-2026-08-15-greifenberg-dinerenblanc.jpg" alt="Dîner en blanc Greifenberg 2026" />
     </div>
   </div>
 
