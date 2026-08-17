@@ -7,40 +7,52 @@
     <title>Jaz Sings – Galerie</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Georgia, serif; color: #333; background: #f0f8ff; }
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; color: #333; background: #f0f8ff; }
 
-        nav {
-            background: #1a1a2e;
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-logo { display: flex; align-items: center; gap: 12px; }
-        .nav-logo img { height: 50px; }
-        .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; }
-        .nav-menu { display: flex; gap: 20px; align-items: center; }
-        .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
-        .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
-        .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-        .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; }
-        .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
+            nav {
+      background: #1a1a2e;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 50px; border-radius: 0; object-fit: cover; }
+    .nav-logo span { color: #a8d8ea; font-size: 1.5rem; letter-spacing: 2px; font-weight: bold; font-family: 'Montserrat', sans-serif; }
+    .nav-menu { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+    .nav-menu a { color: white; text-decoration: none; font-size: 0.95rem; letter-spacing: 1px; padding: 5px 0; border-bottom: 2px solid transparent; transition: all 0.3s; font-family: 'Montserrat', sans-serif; }
+    .nav-menu a:hover, .nav-menu a.active { border-bottom: 2px solid #a8d8ea; color: #a8d8ea; }
+    .nav-icons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .nav-icons a { color: #a8d8ea; text-decoration: none; font-size: 0.8rem; border: 1px solid #a8d8ea; padding: 4px 10px; border-radius: 20px; transition: all 0.3s; font-family: 'Montserrat', sans-serif; }
+    .nav-icons a:hover { background: #a8d8ea; color: #1a1a2e; }
 
         .divider { height: 25px; background: linear-gradient(135deg, #5fb3b3, #7b9ea8, #9b7fa8); }
 
         .page-header {
-            text-align: center;
-            padding: 50px 20px 30px;
-            background: #1a1a2e;
-            color: white;
-        }
-        .page-header h1 { font-size: 2.5rem; color: #a8d8ea; margin-bottom: 10px; }
-        .page-header p { font-size: 1.1rem; color: #ccc; }
+      text-align: center;
+      padding: 70px 20px 50px;
+      background: linear-gradient(180deg, #0d0d1a 0%, #1a1a2e 100%);
+    }
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      color: #a8d8ea;
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: #aaa;
+      text-transform: uppercase;
+    }
 
         .videos-section {
             padding: 50px 20px;
@@ -76,7 +88,7 @@
             color: #a8d8ea;
             border: 2px solid #a8d8ea;
             padding: 16px 52px;
-            font-family: Georgia, serif;
+            font-family: 'Montserrat', sans-serif; font-weight: 300;
             font-size: 1.05rem;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -139,7 +151,7 @@
 
         @media (max-width: 768px) {
             nav { padding: 10px 16px; }
-            .nav-icons { display: none; }
+            
             .nav-logo span { font-size: 1.2rem; }
             .nav-logo img { height: 38px; }
             .page-header { padding: 30px 16px 20px; }
@@ -156,7 +168,10 @@
             .photo-group { margin-bottom: 8px; }
             .photo-group img { margin-bottom: 4px; border-radius: 4px; }
         }
-    </style>
+  
+    
+    }
+  </style>
 </head>
 <body>
 
@@ -186,9 +201,9 @@
     <div class="divider"></div>
 
     <div class="page-header">
-        <h1>Galerie 📸🎬</h1>
-        <p>Musikvideos, Live-Auftritte und Fotos</p>
-    </div>
+  <h1>Galerie 📸🎬</h1>
+  <p>Musikvideos, Live-Auftritte und Fotos</p>
+</div>
 
     <div class="divider"></div>
 
