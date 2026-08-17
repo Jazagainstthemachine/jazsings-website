@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
     <title>Jaz Sings – Jetzt buchen</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -190,32 +191,45 @@
             margin-top: 50px;
         }
         footer a { color: #a8d8ea; }
+
+        @media (max-width: 768px) {
+            nav { padding: 10px 16px; flex-wrap: nowrap; }
+            .nav-icons { display: none; }
+            .nav-logo span { font-size: 1.1rem; }
+            .nav-logo img { height: 36px; }
+            .nav-menu { gap: 12px; flex-wrap: nowrap; overflow-x: auto; }
+            .nav-menu a { font-size: 0.8rem; white-space: nowrap; }
+            .page-header h1 { font-size: 2rem; letter-spacing: 3px; }
+            .form-container { margin: 24px 12px; padding: 28px 20px; }
+            .options-grid { grid-template-columns: 1fr; }
+            .location-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">
-            <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo">
-            <span>JAZ SINGS</span>
-        </div>
-        <div class="nav-menu">
-            <a href="index.html">Home</a>
-            <a href="galerie.html">Galerie</a>
-            <a href="shows.html">Shows</a>
-            <a href="shop.html">Shop</a>
-            <a href="kontakt.html">Kontakt</a>
-        </div>
-        <div class="nav-icons">
-            <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
-            <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
-            <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
-            <a href="https://www.youtube.com/@jazsings" target="_blank">YouTube</a>
-            <a href="https://T.me/jazsings" target="_blank">Telegram</a>
-            <a href="https://wa.me/491772252520" target="_blank">WhatsApp</a>
-            <a href="mailto:Info@jazsings.com">E-Mail</a>
-        </div>
-    </nav>
+  <a class="nav-logo" href="index.html">
+    <img src="images/Hauptseite/hauptseite-logo.jpg" alt="Jaz Sings Logo" />
+    <span>JAZ SINGS</span>
+  </a>
+  <div class="nav-menu">
+    <a href="index.html">Home</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="shows.html">Shows</a>
+    <a href="shop.html">Shop</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+  <div class="nav-icons">
+    <a href="https://www.instagram.com/jaz__sings/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/jazsingz" target="_blank">Facebook</a>
+    <a href="https://www.tiktok.com/@jaz__sings" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@jazsings" target="_blank">YouTube</a>
+    <a href="https://T.me/jazsings" target="_blank">Telegram</a>
+    <a href="https://wa.me/491772252520" target="_blank">WhatsApp</a>
+    <a href="mailto:Info@jazsings.com">E-Mail</a>
+  </div>
+</nav>
 
     <div class="divider"></div>
 
